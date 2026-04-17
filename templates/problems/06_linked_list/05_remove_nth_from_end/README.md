@@ -3,11 +3,49 @@
 - **Difficulty**: Medium
 - **Category**: Linked List
 - **Topics**: linked list, two pointers
+- **Link**: [NeetCode](https://neetcode.io/problems/remove-node-from-end-of-linked-list) | [LeetCode 19](https://leetcode.com/problems/remove-nth-node-from-end-of-list/)
 
 ## Description
 
-Given the head of a linked list, remove the nth node from the end of the list and return its head.
+Given the `head` of a linked list, remove the `n`th node from the end of the list and return its head.
 
-## Approach
+The problem guarantees that `n` is always valid -- that is, `n` will always be less than or equal to the length of the list.
 
-Use two pointers with a gap of n+1 nodes. Advance the fast pointer n+1 steps ahead, then move both until fast reaches nil. The slow pointer will be right before the node to remove. Use a dummy node to handle edge cases like removing the head.
+## Examples
+
+**Example 1:**
+
+```
+Input: head = [1,2,3,4,5], n = 2
+Output: [1,2,3,5]
+Explanation: The 2nd node from the end is node 4, so it is removed.
+```
+
+**Example 2:**
+
+```
+Input: head = [1], n = 1
+Output: []
+Explanation: The only node is removed, resulting in an empty list.
+```
+
+**Example 3:**
+
+```
+Input: head = [1,2], n = 1
+Output: [1]
+Explanation: The last node (value 2) is removed.
+```
+
+## Constraints
+
+- The number of nodes in the list is `sz`
+- `1 <= sz <= 30`
+- `0 <= Node.Val <= 100`
+- `1 <= n <= sz`
+
+## Function Signature
+
+```go
+func removeNthFromEnd(head *ListNode, n int) *ListNode
+```

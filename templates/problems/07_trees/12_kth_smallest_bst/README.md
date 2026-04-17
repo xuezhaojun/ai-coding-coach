@@ -3,11 +3,46 @@
 - **Difficulty**: Medium
 - **Category**: Trees
 - **Topics**: binary search tree, inorder traversal, DFS
+- **Link**: [NeetCode](https://neetcode.io/problems/kth-smallest-integer-in-bst) | [LeetCode 230](https://leetcode.com/problems/kth-smallest-element-in-a-bst/)
 
 ## Description
 
-Given the root of a binary search tree and an integer k, return the kth smallest value (1-indexed) of all the values in the BST.
+Given the root of a binary search tree and an integer `k`, return the `k`th smallest value (1-indexed) among all the values of the nodes in the tree. Since the BST property guarantees that an inorder traversal yields values in ascending order, the `k`th element visited during inorder traversal is the answer.
 
-## Approach
+## Examples
 
-Perform an inorder traversal of the BST, which visits nodes in ascending order. Count visited nodes and stop as soon as the kth node is reached. This runs in O(h + k) time.
+**Example 1:**
+
+```
+Input: root = [3,1,4,null,2], k = 1
+Output: 1
+Explanation: The inorder traversal is [1, 2, 3, 4]. The 1st smallest element is 1.
+```
+
+**Example 2:**
+
+```
+Input: root = [5,3,6,2,4,null,null,1], k = 3
+Output: 3
+Explanation: The inorder traversal is [1, 2, 3, 4, 5, 6]. The 3rd smallest element is 3.
+```
+
+**Example 3:**
+
+```
+Input: root = [3,1,4,null,2], k = 2
+Output: 2
+Explanation: The inorder traversal is [1, 2, 3, 4]. The 2nd smallest element is 2.
+```
+
+## Constraints
+
+- The number of nodes in the tree is `n`.
+- `1 <= k <= n <= 10^4`
+- `0 <= Node.val <= 10^4`
+
+## Function Signature
+
+```go
+func kthSmallest(root *TreeNode, k int) int
+```

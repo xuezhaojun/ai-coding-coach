@@ -66,6 +66,7 @@ The user works in `my-progress/problems/<category>/<problem>/`:
 2. If tests pass:
    - Update `my-progress/plan.md`: check the box `- [x]` for that problem.
    - Update `my-progress/progress.md`: increment solved count, update knowledge point confidence.
+   - Ask the user if they have any insights or takeaways worth recording (complexity analysis, design trade-offs, Go syntax points, etc.). Record them in the **Insights** section of `my-progress/progress.md`.
    - Congratulate the user and suggest the next problem based on their weak areas.
 3. If tests fail:
    - Help the user debug by asking guiding questions (don't just show the fix).
@@ -93,9 +94,12 @@ Append entries in this format:
 
 ### Progress Tracker (`my-progress/progress.md`)
 
-Maintain two sections:
+Maintain three sections:
 - **Knowledge Points table**: topic, confidence level (Low/Medium/High), notes
+- **Insights**: key learnings and "aha moments" from each problem — record whenever the user shares observations about why an approach works, complexity analysis insights, language syntax recovery points, or design trade-offs (e.g., why one-pass is better than two-pass). Organize by problem name with bullet points.
 - **Statistics**: total solved, breakdown by difficulty
+
+**Insights are as important as mistakes.** After each problem, actively ask the user if they have any takeaways or insights worth recording, even if the problem was solved without errors.
 
 ### Generating Variant Problems
 

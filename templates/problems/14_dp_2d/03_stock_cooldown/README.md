@@ -3,11 +3,45 @@
 - **Difficulty**: Medium
 - **Category**: 2D Dynamic Programming
 - **Topics**: dynamic programming, state machine
+- **Link**: [NeetCode](https://neetcode.io/problems/stock-with-cooldown) | [LeetCode 309](https://leetcode.com/problems/best-time-to-buy-and-sell-stock-with-cooldown/)
 
 ## Description
 
-Given an array of stock prices, find the maximum profit with unlimited transactions but a one-day cooldown after selling (you cannot buy the day after you sell).
+You are given an array `prices` where `prices[i]` is the price of a given stock on the `i`-th day. Find the maximum profit you can achieve. You may complete as many transactions as you like (i.e., buy one and sell one share of the stock multiple times) with the following restriction: after you sell your stock, you cannot buy stock on the next day (i.e., cooldown one day). Note that you may not engage in multiple transactions simultaneously (you must sell the stock before you buy again).
 
-## Approach
+## Examples
 
-Model three states: held (holding a stock), sold (just sold today), and rest (idle/cooldown). Transition: sold = held + price, held = max(held, rest - price), rest = max(rest, prevSold). Track these with three variables for O(1) space.
+**Example 1:**
+
+```
+Input: prices = [1,2,3,0,2]
+Output: 3
+Explanation: transactions = [buy, sell, cooldown, buy, sell].
+```
+
+**Example 2:**
+
+```
+Input: prices = [1]
+Output: 0
+Explanation: Only one day, no transaction possible.
+```
+
+**Example 3:**
+
+```
+Input: prices = [1,2]
+Output: 1
+Explanation: Buy on day 0, sell on day 1 for profit of 1.
+```
+
+## Constraints
+
+- `1 <= prices.length <= 5000`
+- `0 <= prices[i] <= 1000`
+
+## Function Signature
+
+```go
+func maxProfitCooldown(prices []int) int
+```

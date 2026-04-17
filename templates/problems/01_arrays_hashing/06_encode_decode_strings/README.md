@@ -3,11 +3,49 @@
 - **Difficulty**: Medium
 - **Category**: Arrays & Hashing
 - **Topics**: string, design
+- **Link**: [NeetCode](https://neetcode.io/problems/string-encode-and-decode) | [LeetCode 271](https://leetcode.com/problems/encode-and-decode-strings/)
 
 ## Description
 
-Design an algorithm to encode a list of strings to a single string and decode it back. The encoded string should be transmittable over a network and decodable back to the original list of strings.
+Design an algorithm to encode a list of strings to a single string. The encoded string is then decoded back to the original list of strings.
 
-## Approach
+Please implement `encode` and `decode` functions. The encoded string should be able to handle any possible input, including strings that contain special characters, delimiters, or are empty. The encoding must be lossless -- decoding the encoded string must produce the exact original list of strings.
 
-Use a length-prefixed encoding: for each string, write its length followed by a '#' delimiter and then the string itself (e.g., "5#hello3#bye"). To decode, read the number before '#' to know how many characters to consume next.
+## Examples
+
+**Example 1:**
+
+```
+Input: ["hello","world"]
+Output: ["hello","world"]
+Explanation: encode(["hello","world"]) may produce "5#hello5#world", and decode("5#hello5#world") returns ["hello","world"].
+```
+
+**Example 2:**
+
+```
+Input: [""]
+Output: [""]
+Explanation: The list contains a single empty string and must be preserved through encoding and decoding.
+```
+
+**Example 3:**
+
+```
+Input: ["he:llo","wor#ld","foo;bar"]
+Output: ["he:llo","wor#ld","foo;bar"]
+Explanation: Special characters in the strings must be handled correctly. The encoding must not be confused by characters that look like delimiters.
+```
+
+## Constraints
+
+- `0 <= strs.length <= 200`
+- `0 <= strs[i].length <= 200`
+- `strs[i]` contains any possible characters out of 256 valid ASCII characters.
+
+## Function Signature
+
+```go
+func encode(strs []string) string
+func decode(s string) []string
+```

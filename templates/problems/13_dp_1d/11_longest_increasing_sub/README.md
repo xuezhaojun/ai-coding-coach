@@ -3,11 +3,43 @@
 - **Difficulty**: Medium
 - **Category**: 1D Dynamic Programming
 - **Topics**: dynamic programming, binary search
+- **Link**: [NeetCode](https://neetcode.io/problems/longest-increasing-subsequence) | [LeetCode 300](https://leetcode.com/problems/longest-increasing-subsequence/)
 
 ## Description
 
-Given an integer array, return the length of the longest strictly increasing subsequence.
+Given an integer array `nums`, return the length of the longest strictly increasing subsequence. A subsequence is an array that can be derived from another array by deleting some or no elements without changing the order of the remaining elements.
 
-## Approach
+## Examples
 
-Maintain a "tails" array where tails[i] holds the smallest tail element of all increasing subsequences of length i+1. For each number, use binary search to find its position. If it extends the longest subsequence, append it; otherwise, replace the element at the found position. The length of the tails array is the answer.
+**Example 1:**
+
+```
+Input: nums = [10,9,2,5,3,7,101,18]
+Output: 4
+Explanation: The longest increasing subsequence is [2,3,7,101], therefore the length is 4.
+```
+
+**Example 2:**
+
+```
+Input: nums = [0,1,0,3,2,3]
+Output: 4
+```
+
+**Example 3:**
+
+```
+Input: nums = [7,7,7,7,7]
+Output: 1
+```
+
+## Constraints
+
+- `1 <= nums.length <= 2500`
+- `-10^4 <= nums[i] <= 10^4`
+
+## Function Signature
+
+```go
+func lengthOfLIS(nums []int) int
+```

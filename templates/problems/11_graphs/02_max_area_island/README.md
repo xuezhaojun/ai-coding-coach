@@ -3,11 +3,56 @@
 - **Difficulty**: Medium
 - **Category**: Graphs
 - **Topics**: DFS, BFS, matrix, flood fill
+- **Link**: [NeetCode](https://neetcode.io/problems/max-area-of-island) | [LeetCode 695](https://leetcode.com/problems/max-area-of-island/)
 
 ## Description
 
-Given an m x n binary matrix grid, return the area of the largest island (connected component of 1s). If there is no island, return 0.
+You are given an `m x n` binary matrix `grid`. An island is a group of `1`s (representing land) connected 4-directionally (horizontal or vertical). You may assume all four edges of the grid are surrounded by water.
 
-## Approach
+The area of an island is the number of cells with a value `1` in the island. Return the maximum area of an island in `grid`. If there is no island, return `0`.
 
-Use DFS flood fill on each unvisited land cell. The DFS returns the count of connected cells (area). Track the maximum area found across all islands. Mark visited cells by setting them to 0.
+## Examples
+
+**Example 1:**
+
+```
+Input: grid = [
+  [0,0,1,0,0,0,0,1,0,0,0,0,0],
+  [0,0,0,0,0,0,0,1,1,1,0,0,0],
+  [0,1,1,0,1,0,0,0,0,0,0,0,0],
+  [0,1,0,0,1,1,0,0,1,0,1,0,0],
+  [0,1,0,0,1,1,0,0,1,1,1,0,0],
+  [0,0,0,0,0,0,0,0,0,0,1,0,0],
+  [0,0,0,0,0,0,0,1,1,1,0,0,0],
+  [0,0,0,0,0,0,0,1,1,0,0,0,0]
+]
+Output: 6
+Explanation: The largest island has area 6 (the connected component in the bottom-right area).
+```
+
+**Example 2:**
+
+```
+Input: grid = [[0,0,0],[0,0,0]]
+Output: 0
+```
+
+**Example 3:**
+
+```
+Input: grid = [[1,1],[1,1]]
+Output: 4
+```
+
+## Constraints
+
+- `m == grid.length`
+- `n == grid[i].length`
+- `1 <= m, n <= 50`
+- `grid[i][j]` is either `0` or `1`.
+
+## Function Signature
+
+```go
+func maxAreaOfIsland(grid [][]int) int
+```

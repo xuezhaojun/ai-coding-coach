@@ -3,11 +3,45 @@
 - **Difficulty**: Hard
 - **Category**: Trees
 - **Topics**: binary tree, DFS, dynamic programming on trees
+- **Link**: [NeetCode](https://neetcode.io/problems/binary-tree-maximum-path-sum) | [LeetCode 124](https://leetcode.com/problems/binary-tree-maximum-path-sum/)
 
 ## Description
 
-Given the root of a binary tree, return the maximum path sum of any non-empty path. A path can start and end at any node and consists of connected nodes where each node appears at most once.
+Given the root of a binary tree, return the maximum path sum of any non-empty path. A path in a binary tree is a sequence of nodes where each pair of adjacent nodes in the sequence has an edge connecting them. A node can only appear in the sequence at most once. The path does not need to pass through the root, and it can start and end at any node in the tree. Node values can be negative.
 
-## Approach
+## Examples
 
-Use DFS where each call returns the maximum gain from that node going downward (single branch). At each node, compute the path sum through that node (left gain + node + right gain), updating the global max. Clamp negative gains to zero since we can choose not to extend a path.
+**Example 1:**
+
+```
+Input: root = [1,2,3]
+Output: 6
+Explanation: The optimal path is 2 -> 1 -> 3 with a path sum of 2 + 1 + 3 = 6.
+```
+
+**Example 2:**
+
+```
+Input: root = [-10,9,20,null,null,15,7]
+Output: 42
+Explanation: The optimal path is 15 -> 20 -> 7 with a path sum of 15 + 20 + 7 = 42.
+```
+
+**Example 3:**
+
+```
+Input: root = [-3]
+Output: -3
+Explanation: With only one node, the maximum path sum is the node's value itself.
+```
+
+## Constraints
+
+- The number of nodes in the tree is in the range `[1, 3 * 10^4]`.
+- `-1000 <= Node.val <= 1000`
+
+## Function Signature
+
+```go
+func maxPathSum(root *TreeNode) int
+```

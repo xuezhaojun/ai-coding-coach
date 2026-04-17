@@ -3,11 +3,48 @@
 - **Difficulty**: Medium
 - **Category**: Sliding Window
 - **Topics**: string, hash table, sliding window
+- **Link**: [NeetCode](https://neetcode.io/problems/longest-repeating-substring-with-replacement) | [LeetCode 424](https://leetcode.com/problems/longest-repeating-character-replacement/)
 
 ## Description
 
-Given a string s and an integer k, you can choose any character and change it to any other uppercase English letter at most k times. Return the length of the longest substring containing the same letter after performing at most k changes.
+You are given a string `s` and an integer `k`. You can choose any character of the string and change it to any other uppercase English letter. You can perform this operation at most `k` times.
 
-## Approach
+Return the length of the longest substring containing the same letter you can get after performing the above operations.
 
-Use a sliding window tracking character frequencies. The key insight is that if (window size - max frequency in window) exceeds k, the window is invalid and must shrink from the left. The maxFreq value does not need to be decremented precisely because we only care about finding longer valid windows.
+## Examples
+
+**Example 1:**
+
+```
+Input: s = "ABAB", k = 2
+Output: 4
+Explanation: Replace the two 'A's with two 'B's or vice versa. The entire string becomes "BBBB" or "AAAA", with length 4.
+```
+
+**Example 2:**
+
+```
+Input: s = "AABABBA", k = 1
+Output: 4
+Explanation: Replace the one 'B' at index 3 with 'A'. The substring "AABA" has length 4 with all same characters.
+```
+
+**Example 3:**
+
+```
+Input: s = "AAAA", k = 0
+Output: 4
+Explanation: No replacements needed. The entire string already consists of the same character.
+```
+
+## Constraints
+
+- `1 <= s.length <= 10^5`
+- `s` consists of only uppercase English letters.
+- `0 <= k <= s.length`
+
+## Function Signature
+
+```go
+func characterReplacement(s string, k int) int
+```

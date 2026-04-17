@@ -3,11 +3,44 @@
 - **Difficulty**: Medium
 - **Category**: 1D Dynamic Programming
 - **Topics**: dynamic programming, string, two pointers
+- **Link**: [NeetCode](https://neetcode.io/problems/longest-palindromic-substring) | [LeetCode 5](https://leetcode.com/problems/longest-palindromic-substring/)
 
 ## Description
 
-Given a string s, return the longest palindromic substring in s.
+Given a string `s`, return the longest palindromic substring in `s`. A palindrome is a string that reads the same forward and backward. If there are multiple answers of the same length, return any one of them.
 
-## Approach
+## Examples
 
-Use the expand-around-center technique. For each character (and each pair of adjacent characters), expand outward while characters match. Track the longest palindrome found. This achieves O(n^2) time with O(1) space, which is optimal without Manacher's algorithm.
+**Example 1:**
+
+```
+Input: s = "babad"
+Output: "bab"
+Explanation: "aba" is also a valid answer.
+```
+
+**Example 2:**
+
+```
+Input: s = "cbbd"
+Output: "bb"
+```
+
+**Example 3:**
+
+```
+Input: s = "racecar"
+Output: "racecar"
+Explanation: The entire string is a palindrome.
+```
+
+## Constraints
+
+- `1 <= s.length <= 1000`
+- `s` consists of only lowercase English letters.
+
+## Function Signature
+
+```go
+func longestPalindrome(s string) string
+```

@@ -3,11 +3,45 @@
 - **Difficulty**: Medium
 - **Category**: 2D Dynamic Programming
 - **Topics**: dynamic programming, string
+- **Link**: [NeetCode](https://neetcode.io/problems/longest-common-subsequence) | [LeetCode 1143](https://leetcode.com/problems/longest-common-subsequence/)
 
 ## Description
 
-Given two strings, return the length of their longest common subsequence. A subsequence is derived by deleting some (or no) characters without changing the order.
+Given two strings `text1` and `text2`, return the length of their longest common subsequence. If there is no common subsequence, return 0. A subsequence of a string is a new string generated from the original string with some characters (can be none) deleted without changing the relative order of the remaining characters.
 
-## Approach
+## Examples
 
-Use a 1D DP array optimized from the standard 2D table. For each character in text1, iterate through text2 and track the diagonal value (prev). If characters match, dp[j] = prev + 1; otherwise, dp[j] = max(dp[j], dp[j-1]).
+**Example 1:**
+
+```
+Input: text1 = "abcde", text2 = "ace"
+Output: 3
+Explanation: The longest common subsequence is "ace" and its length is 3.
+```
+
+**Example 2:**
+
+```
+Input: text1 = "abc", text2 = "abc"
+Output: 3
+Explanation: The longest common subsequence is "abc" and its length is 3.
+```
+
+**Example 3:**
+
+```
+Input: text1 = "abc", text2 = "def"
+Output: 0
+Explanation: There is no common subsequence, so the result is 0.
+```
+
+## Constraints
+
+- `1 <= text1.length, text2.length <= 1000`
+- `text1` and `text2` consist of only lowercase English characters.
+
+## Function Signature
+
+```go
+func longestCommonSubsequence(text1 string, text2 string) int
+```

@@ -3,11 +3,47 @@
 - **Difficulty**: Medium
 - **Category**: Sliding Window
 - **Topics**: string, hash table, sliding window, two pointers
+- **Link**: [NeetCode](https://neetcode.io/problems/permutation-string) | [LeetCode 567](https://leetcode.com/problems/permutation-in-string/)
 
 ## Description
 
-Given two strings s1 and s2, return true if s2 contains a permutation of s1. In other words, return true if one of s1's permutations is a substring of s2.
+Given two strings `s1` and `s2`, return `true` if `s2` contains a permutation of `s1`, or `false` otherwise.
 
-## Approach
+In other words, return `true` if one of `s1`'s permutations is the substring of `s2`. A permutation is a rearrangement of all the characters of a string.
 
-Use a fixed-size sliding window of length len(s1) over s2. Maintain character frequency arrays for both s1 and the current window. Slide the window one character at a time, adding the new character and removing the old one, then compare the two arrays. Array comparison in Go is O(1) for fixed-size arrays.
+## Examples
+
+**Example 1:**
+
+```
+Input: s1 = "ab", s2 = "eidbaooo"
+Output: true
+Explanation: s2 contains one permutation of s1 ("ba"), which is a substring of s2.
+```
+
+**Example 2:**
+
+```
+Input: s1 = "ab", s2 = "eidboaoo"
+Output: false
+Explanation: No permutation of "ab" exists as a contiguous substring in s2.
+```
+
+**Example 3:**
+
+```
+Input: s1 = "aab", s2 = "ccccbaa"
+Output: true
+Explanation: s2 contains the permutation "baa" of s1 as a substring.
+```
+
+## Constraints
+
+- `1 <= s1.length, s2.length <= 10^4`
+- `s1` and `s2` consist of lowercase English letters.
+
+## Function Signature
+
+```go
+func checkInclusion(s1 string, s2 string) bool
+```

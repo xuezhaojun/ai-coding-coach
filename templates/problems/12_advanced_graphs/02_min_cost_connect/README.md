@@ -3,11 +3,48 @@
 - **Difficulty**: Medium
 - **Category**: Advanced Graphs
 - **Topics**: minimum spanning tree, Prim's algorithm, heap
+- **Link**: [NeetCode](https://neetcode.io/problems/min-cost-to-connect-points) | [LeetCode 1584](https://leetcode.com/problems/min-cost-to-connect-all-points/)
 
 ## Description
 
-Given an array of points on a 2D plane, return the minimum cost to connect all points. The cost of connecting two points is the Manhattan distance between them. All points must be connected with exactly one simple path between any two points.
+You are given an array `points` representing integer coordinates of some points on a 2D-plane, where `points[i] = [xi, yi]`.
 
-## Approach
+The cost of connecting two points `[xi, yi]` and `[xj, yj]` is the Manhattan distance between them: `|xi - xj| + |yi - yj|`.
 
-Use Prim's algorithm with a min-heap. Start from point 0 and greedily add the cheapest edge connecting a visited node to an unvisited node. The Manhattan distance serves as the edge weight. Continue until all n points are included in the MST.
+Return the minimum cost to make all points connected. All points are connected if there is exactly one simple path between any two points.
+
+## Examples
+
+**Example 1:**
+
+```
+Input: points = [[0,0],[2,2],[3,10],[5,2],[7,0]]
+Output: 20
+```
+
+**Example 2:**
+
+```
+Input: points = [[3,12],[-2,5],[-4,1]]
+Output: 18
+```
+
+**Example 3:**
+
+```
+Input: points = [[0,0],[1,1]]
+Output: 2
+Explanation: The Manhattan distance between the two points is |0-1| + |0-1| = 2.
+```
+
+## Constraints
+
+- `1 <= points.length <= 1000`
+- `-10^6 <= xi, yi <= 10^6`
+- All pairs `(xi, yi)` are distinct.
+
+## Function Signature
+
+```go
+func minCostConnectPoints(points [][]int) int
+```

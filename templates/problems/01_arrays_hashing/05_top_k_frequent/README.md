@@ -3,11 +3,48 @@
 - **Difficulty**: Medium
 - **Category**: Arrays & Hashing
 - **Topics**: array, hash table, bucket sort, heap
+- **Link**: [NeetCode](https://neetcode.io/problems/top-k-elements-in-list) | [LeetCode 347](https://leetcode.com/problems/top-k-frequent-elements/)
 
 ## Description
 
-Given an integer array nums and an integer k, return the k most frequent elements. The answer may be returned in any order.
+Given an integer array `nums` and an integer `k`, return the `k` most frequent elements. You may return the answer in any order.
 
-## Approach
+It is guaranteed that the answer is unique.
 
-Count frequencies with a hash map, then use bucket sort where the bucket index represents the frequency. Iterate from the highest bucket downward to collect the top k elements. This achieves O(n) time, better than the O(n log k) heap approach.
+## Examples
+
+**Example 1:**
+
+```
+Input: nums = [1,1,1,2,2,3], k = 2
+Output: [1,2]
+Explanation: 1 appears 3 times and 2 appears 2 times. The two most frequent elements are 1 and 2.
+```
+
+**Example 2:**
+
+```
+Input: nums = [1], k = 1
+Output: [1]
+```
+
+**Example 3:**
+
+```
+Input: nums = [-1,-1,-2,-2,-2,-3], k = 1
+Output: [-2]
+Explanation: -2 appears 3 times, which is the most frequent element.
+```
+
+## Constraints
+
+- `1 <= nums.length <= 10^5`
+- `-10^4 <= nums[i] <= 10^4`
+- `k` is in the range `[1, the number of unique elements in the array]`.
+- It is guaranteed that the answer is unique.
+
+## Function Signature
+
+```go
+func topKFrequent(nums []int, k int) []int
+```

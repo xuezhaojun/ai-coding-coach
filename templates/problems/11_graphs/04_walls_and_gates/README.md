@@ -3,11 +3,63 @@
 - **Difficulty**: Medium
 - **Category**: Graphs
 - **Topics**: BFS, multi-source BFS, matrix
+- **Link**: [NeetCode](https://neetcode.io/problems/islands-and-treasure) | [LeetCode 286](https://leetcode.com/problems/walls-and-gates/) | [LintCode 663](https://www.lintcode.com/problem/663/)
 
 ## Description
 
-Given an m x n grid where -1 represents a wall, 0 represents a gate, and INF represents an empty room, fill each empty room with the distance to its nearest gate. If a room cannot reach any gate, leave it as INF.
+You are given an `m x n` grid `rooms` initialized with these three possible values:
 
-## Approach
+- `-1` -- A wall or an obstacle.
+- `0` -- A gate.
+- `INF` (2147483647) -- An empty room.
 
-Use multi-source BFS starting from all gates simultaneously. Add all gate positions to the queue initially. For each cell processed, update its unvisited neighbors with distance + 1. Since BFS explores level by level, each room is assigned the shortest distance to any gate.
+Fill each empty room with the distance to its nearest gate. If it is impossible to reach a gate, the room should remain `INF`.
+
+Distance is measured as the number of steps in the four cardinal directions (up, down, left, right).
+
+## Examples
+
+**Example 1:**
+
+```
+Input: rooms = [
+  [INF, -1,  0, INF],
+  [INF, INF, INF, -1],
+  [INF, -1, INF, -1],
+  [ 0,  -1, INF, INF]
+]
+Output: [
+  [3, -1, 0,  1],
+  [2,  2, 1, -1],
+  [1, -1, 2, -1],
+  [0, -1, 3,  4]
+]
+```
+
+**Example 2:**
+
+```
+Input: rooms = [[0]]
+Output: [[0]]
+```
+
+**Example 3:**
+
+```
+Input: rooms = [[INF, INF],[INF, INF]]
+Output: [[INF, INF],[INF, INF]]
+Explanation: No gates exist, so all rooms remain INF.
+```
+
+## Constraints
+
+- `m == rooms.length`
+- `n == rooms[i].length`
+- `1 <= m, n <= 250`
+- `rooms[i][j]` is `-1`, `0`, or `2147483647`.
+
+## Function Signature
+
+```go
+func wallsAndGates(rooms [][]int)
+```

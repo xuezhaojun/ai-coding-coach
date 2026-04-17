@@ -3,11 +3,45 @@
 - **Difficulty**: Easy
 - **Category**: Trees
 - **Topics**: binary tree, recursion, DFS
+- **Link**: [NeetCode](https://neetcode.io/problems/invert-a-binary-tree) | [LeetCode 226](https://leetcode.com/problems/invert-binary-tree/)
 
 ## Description
 
-Given the root of a binary tree, invert the tree (mirror it) and return its root. Every left child is swapped with its right child at each node.
+Given the root of a binary tree, invert the tree and return its root. Inverting a binary tree means swapping every left child with its corresponding right child at every node in the tree, effectively creating a mirror image of the original tree.
 
-## Approach
+## Examples
 
-Recursively swap the left and right children of each node. Base case is a nil node. After swapping at the current node, recurse on both subtrees.
+**Example 1:**
+
+```
+Input: root = [4,2,7,1,3,6,9]
+Output: [4,7,2,9,6,3,1]
+Explanation: Every left and right child pair is swapped. Node 2 and 7 swap, then 1 and 3 swap, and 6 and 9 swap.
+```
+
+**Example 2:**
+
+```
+Input: root = [2,1,3]
+Output: [2,3,1]
+Explanation: The left child 1 and right child 3 are swapped.
+```
+
+**Example 3:**
+
+```
+Input: root = []
+Output: []
+Explanation: An empty tree remains empty after inversion.
+```
+
+## Constraints
+
+- The number of nodes in the tree is in the range `[0, 100]`.
+- `-100 <= Node.val <= 100`
+
+## Function Signature
+
+```go
+func invertTree(root *TreeNode) *TreeNode
+```

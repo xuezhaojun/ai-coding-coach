@@ -3,11 +3,50 @@
 - **Difficulty**: Medium
 - **Category**: Graphs
 - **Topics**: union find, graph, tree
+- **Link**: [NeetCode](https://neetcode.io/problems/valid-tree) | [LeetCode 261](https://leetcode.com/problems/graph-valid-tree/) | [LintCode 178](https://www.lintcode.com/problem/178/)
 
 ## Description
 
-Given n nodes labeled 0 to n-1 and a list of undirected edges, determine if these edges form a valid tree. A valid tree must be connected and have no cycles.
+You have a graph of `n` nodes labeled from `0` to `n - 1`. You are given an integer `n` and a list of `edges` where `edges[i] = [ai, bi]` indicates that there is an undirected edge between nodes `ai` and `bi` in the graph.
 
-## Approach
+Return `true` if the edges of the given graph make up a valid tree, and `false` otherwise. A valid tree is a connected, acyclic undirected graph. Equivalently, a valid tree with `n` nodes has exactly `n - 1` edges and is connected.
 
-A tree with n nodes has exactly n-1 edges. First check this condition. Then use Union-Find to detect cycles: for each edge, union the two endpoints. If they already share the same root, a cycle exists. If all edges pass without a cycle and edge count is n-1, it is a valid tree.
+## Examples
+
+**Example 1:**
+
+```
+Input: n = 5, edges = [[0,1],[0,2],[0,3],[1,4]]
+Output: true
+```
+
+**Example 2:**
+
+```
+Input: n = 5, edges = [[0,1],[1,2],[2,3],[1,3],[1,4]]
+Output: false
+Explanation: There is a cycle: 1 -> 2 -> 3 -> 1.
+```
+
+**Example 3:**
+
+```
+Input: n = 4, edges = [[0,1],[2,3]]
+Output: false
+Explanation: The graph is disconnected (two separate components).
+```
+
+## Constraints
+
+- `1 <= n <= 2000`
+- `0 <= edges.length <= 5000`
+- `edges[i].length == 2`
+- `0 <= ai, bi < n`
+- `ai != bi`
+- There are no self-loops or repeated edges.
+
+## Function Signature
+
+```go
+func validTree(n int, edges [][]int) bool
+```

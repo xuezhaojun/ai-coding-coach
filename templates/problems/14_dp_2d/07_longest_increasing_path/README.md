@@ -3,11 +3,46 @@
 - **Difficulty**: Hard
 - **Category**: 2D Dynamic Programming
 - **Topics**: dynamic programming, DFS, memoization, matrix
+- **Link**: [NeetCode](https://neetcode.io/problems/longest-increasing-path-in-matrix) | [LeetCode 329](https://leetcode.com/problems/longest-increasing-path-in-a-matrix/)
 
 ## Description
 
-Given an m x n matrix of integers, find the length of the longest strictly increasing path. You can move in four directions (up, down, left, right).
+Given an `m x n` integers `matrix`, return the length of the longest increasing path in `matrix`. From each cell, you can move in four directions: left, right, up, or down. You may not move diagonally or move outside the boundary. The path must be strictly increasing.
 
-## Approach
+## Examples
 
-Use DFS with memoization. For each cell, explore all four neighbors with strictly greater values and cache the result. Each cell is computed at most once, giving O(m*n) total time. The strictly increasing constraint prevents cycles, so no visited array is needed.
+**Example 1:**
+
+```
+Input: matrix = [[9,9,4],[6,6,8],[2,1,1]]
+Output: 4
+Explanation: The longest increasing path is [1, 2, 6, 9].
+```
+
+**Example 2:**
+
+```
+Input: matrix = [[3,4,5],[3,2,6],[2,2,1]]
+Output: 4
+Explanation: The longest increasing path is [3, 4, 5, 6]. Moving diagonally is not allowed.
+```
+
+**Example 3:**
+
+```
+Input: matrix = [[1]]
+Output: 1
+```
+
+## Constraints
+
+- `m == matrix.length`
+- `n == matrix[i].length`
+- `1 <= m, n <= 200`
+- `0 <= matrix[i][j] <= 2^31 - 1`
+
+## Function Signature
+
+```go
+func longestIncreasingPath(matrix [][]int) int
+```

@@ -24,15 +24,14 @@ cp "$TEMPLATES_DIR/plan.md" "$PROGRESS_DIR/plan.md"
 cp "$TEMPLATES_DIR/mistakes.md" "$PROGRESS_DIR/mistakes.md"
 cp "$TEMPLATES_DIR/progress.md" "$PROGRESS_DIR/progress.md"
 
-# Copy problem stubs and tests (but NOT solution.go and README.md)
-echo "Copying problem stubs and tests..."
+# Copy problem stubs, tests, and READMEs (but NOT solution.go)
+echo "Copying problem stubs, tests, and READMEs..."
 cd "$TEMPLATES_DIR/problems"
 find . -type d | while read -r dir; do
     mkdir -p "$PROGRESS_DIR/problems/$dir"
 done
 
-find . -name "*.go" \
-    ! -name "solution.go" \
+find . \( -name "*.go" ! -name "solution.go" \) -o -name "README.md" -o -name "README_zh.md" \
     | while read -r file; do
     cp "$file" "$PROGRESS_DIR/problems/$file"
 done

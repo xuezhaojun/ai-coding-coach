@@ -3,11 +3,46 @@
 - **Difficulty**: Medium
 - **Category**: Arrays & Hashing
 - **Topics**: string, hash table, sorting
+- **Link**: [NeetCode](https://neetcode.io/problems/anagram-groups) | [LeetCode 49](https://leetcode.com/problems/group-anagrams/)
 
 ## Description
 
-Given an array of strings strs, group the anagrams together. You can return the answer in any order. An anagram is a word formed by rearranging the letters of another word.
+Given an array of strings `strs`, group the anagrams together. You can return the answer in any order.
 
-## Approach
+An anagram is a word or phrase formed by rearranging the letters of a different word or phrase, using all the original letters exactly once.
 
-Use a character-frequency array [26]byte as the hash map key for each string. Strings with identical frequency arrays are anagrams and get grouped together. This avoids sorting each string and runs in O(n * k) time.
+## Examples
+
+**Example 1:**
+
+```
+Input: strs = ["eat","tea","tan","ate","nat","bat"]
+Output: [["bat"],["nat","tan"],["ate","eat","tea"]]
+Explanation: "eat", "tea", and "ate" are anagrams of each other, as are "tan" and "nat". "bat" has no anagram in the list.
+```
+
+**Example 2:**
+
+```
+Input: strs = [""]
+Output: [[""]]
+```
+
+**Example 3:**
+
+```
+Input: strs = ["a"]
+Output: [["a"]]
+```
+
+## Constraints
+
+- `1 <= strs.length <= 10^4`
+- `0 <= strs[i].length <= 100`
+- `strs[i]` consists of lowercase English letters.
+
+## Function Signature
+
+```go
+func groupAnagrams(strs []string) [][]string
+```

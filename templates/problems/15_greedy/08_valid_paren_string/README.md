@@ -3,11 +3,44 @@
 - **Difficulty**: Medium
 - **Category**: Greedy
 - **Topics**: string, greedy, dynamic programming
+- **Link**: [NeetCode](https://neetcode.io/problems/valid-parenthesis-string) | [LeetCode 678](https://leetcode.com/problems/valid-parenthesis-string/)
 
 ## Description
 
-Given a string containing '(', ')' and '*', where '*' can be treated as '(', ')' or empty string, determine if the string is valid (all parentheses are properly matched).
+Given a string `s` containing only three types of characters: `'('`, `')'` and `'*'`, return `true` if `s` is valid. The following rules define a valid string: any left parenthesis `'('` must have a corresponding right parenthesis `')'`, any right parenthesis `')'` must have a corresponding left parenthesis `'('`, left parenthesis `'('` must go before the corresponding right parenthesis `')'`, and `'*'` could be treated as a single right parenthesis `')'` or a single left parenthesis `'('` or an empty string `""`.
 
-## Approach
+## Examples
 
-Track the range of possible open parenthesis counts using two variables: lo (minimum) and hi (maximum). For '(' both increase, for ')' both decrease, for '*' lo decreases and hi increases. If hi goes negative, too many closing parens. Clamp lo at 0. Valid if lo is 0 at end.
+**Example 1:**
+
+```
+Input: s = "()"
+Output: true
+```
+
+**Example 2:**
+
+```
+Input: s = "(*)"
+Output: true
+Explanation: '*' can be treated as empty, making the string "()" which is valid.
+```
+
+**Example 3:**
+
+```
+Input: s = "(*))"
+Output: true
+Explanation: '*' can be treated as '(', making the string "(())" which is valid.
+```
+
+## Constraints
+
+- `1 <= s.length <= 100`
+- `s[i]` is `'('`, `')'` or `'*'`.
+
+## Function Signature
+
+```go
+func checkValidString(s string) bool
+```
