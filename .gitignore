@@ -1,0 +1,6 @@
+tmp/
+my-progress/
+*.exe
+*.test
+*.out
+.DS_Store
