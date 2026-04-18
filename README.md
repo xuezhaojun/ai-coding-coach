@@ -9,8 +9,8 @@ English | [中文](README_zh.md)
 An interview prep repo designed to work with AI coding assistants (Claude Code, Cursor, Windsurf, etc.). Clone it, open it, and start practicing algorithm problems with an AI coach that:
 
 - Guides you through 150 problems (based on NeetCode 150) without giving away answers
-- Tracks your progress in `my-progress/plan.md`
-- Records your mistakes in `my-progress/mistakes.md` and identifies weak areas
+- Tracks your progress in `my-progress/checklist.md`
+- Records insights and mistakes in `my-progress/progress.md` and identifies weak areas
 - Generates variant problems based on your error patterns
 - Provides optimal reference solutions for every problem
 - Supports both English and Chinese interaction
@@ -40,7 +40,7 @@ code .
 
 ### 1. Pick a Problem
 
-Open `my-progress/plan.md` to see all 150 problems organized by category and difficulty (numbered `01.01`, `01.02`, etc.). Each links to your working Go file.
+Open `my-progress/checklist.md` to see all 150 problems organized by category and difficulty (numbered `01.01`, `01.02`, etc.). Each links to your working Go file.
 
 ### 2. Write Your Solution
 
@@ -58,7 +58,7 @@ go test ./my-progress/problems/07_trees/... -v
 
 ### 4. Track Progress
 
-The agent automatically updates `my-progress/plan.md` (checkboxes), `my-progress/mistakes.md` (error log), and `my-progress/progress.md` (knowledge points) as you work.
+The agent automatically updates `my-progress/checklist.md` (checkboxes) and `my-progress/progress.md` (session log with insights, mistakes, and knowledge points) as you work.
 
 ### 5. Check Reference Solutions
 
@@ -79,8 +79,7 @@ go-algo-espresso/
 ├── AGENTS.md                  # Symlink → CLAUDE.md (for other AI tools)
 ├── .algo-espresso.yaml        # User configuration (language, etc.)
 ├── templates/                 # READ-ONLY (do not modify)
-│   ├── plan.md                # Problem checklist template
-│   ├── mistakes.md            # Mistake log template
+│   ├── checklist.md           # Problem checklist template
 │   ├── progress.md            # Progress tracker template
 │   └── problems/              # Problem stubs, tests, solutions, metadata
 │       ├── 01_arrays_hashing/
@@ -108,9 +107,8 @@ go-algo-espresso/
 │       ├── 17_math_geometry/      # 8 problems
 │       └── 18_bit_manipulation/   # 7 problems
 ├── my-progress/               # Your personal workspace (gitignored)
-│   ├── plan.md                # Your problem checklist with progress
-│   ├── mistakes.md            # Your mistake log
-│   ├── progress.md            # Your knowledge point tracker
+│   ├── checklist.md           # Your problem checklist with progress
+│   ├── progress.md            # Your progress tracker (insights, mistakes, stats)
 │   └── problems/              # Your working copies (write solutions here)
 ├── tmp/                       # Variant problems (gitignored)
 └── scripts/

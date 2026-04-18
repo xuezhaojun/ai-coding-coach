@@ -20,8 +20,7 @@ echo "Initializing my-progress/ from templates..."
 mkdir -p "$PROGRESS_DIR"
 
 # Copy tracking files
-cp "$TEMPLATES_DIR/plan.md" "$PROGRESS_DIR/plan.md"
-cp "$TEMPLATES_DIR/mistakes.md" "$PROGRESS_DIR/mistakes.md"
+cp "$TEMPLATES_DIR/checklist.md" "$PROGRESS_DIR/checklist.md"
 cp "$TEMPLATES_DIR/progress.md" "$PROGRESS_DIR/progress.md"
 
 # Copy problem stubs, tests, solutions, and READMEs
@@ -40,9 +39,8 @@ echo ""
 echo "Done! Your workspace is ready at my-progress/"
 echo ""
 echo "  my-progress/"
-echo "  ├── plan.md        — your problem checklist"
-echo "  ├── mistakes.md    — your mistake log"
-echo "  ├── progress.md    — your knowledge tracker"
+echo "  ├── checklist.md   — your problem checklist"
+echo "  ├── progress.md   — your progress tracker (insights, mistakes, stats)"
 echo "  └── problems/      — write your solutions here"
 echo ""
 echo "Reference solutions: templates/problems/<category>/<problem>/solution.go"

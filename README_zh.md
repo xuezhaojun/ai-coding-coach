@@ -9,8 +9,8 @@
 一个专为 AI 编程助手（Claude Code、Cursor、Windsurf 等）设计的面试刷题仓库。克隆下来，打开项目，就能开始和 AI 教练一起练习算法题：
 
 - 引导你完成 150 道题目（基于 NeetCode 150），不会直接给答案
-- 在 `my-progress/plan.md` 中追踪你的刷题进度
-- 在 `my-progress/mistakes.md` 中记录你的错误，帮你发现薄弱环节
+- 在 `my-progress/checklist.md` 中追踪你的刷题进度
+- 在 `my-progress/progress.md` 中记录心得和错误，帮你发现薄弱环节
 - 根据你的错误模式生成变体练习题
 - 每道题都附带最优参考答案
 - 支持中文和英文交互
@@ -40,7 +40,7 @@ code .
 
 ### 1. 选择题目
 
-打开 `my-progress/plan.md`，查看按分类和难度排列的 150 道题目（编号格式 `01.01`、`01.02`……）。每道题都链接到你的工作文件。
+打开 `my-progress/checklist.md`，查看按分类和难度排列的 150 道题目（编号格式 `01.01`、`01.02`……）。每道题都链接到你的工作文件。
 
 ### 2. 编写解法
 
@@ -58,7 +58,7 @@ go test ./my-progress/problems/07_trees/... -v
 
 ### 4. 追踪进度
 
-AI 教练会自动更新 `my-progress/plan.md`（打勾）、`my-progress/mistakes.md`（错误记录）和 `my-progress/progress.md`（知识点掌握度）。
+AI 教练会自动更新 `my-progress/checklist.md`（打勾）和 `my-progress/progress.md`（心得、错误记录、知识点掌握度）。
 
 ### 5. 查看参考答案
 
@@ -79,8 +79,7 @@ go-algo-espresso/
 ├── AGENTS.md                  # CLAUDE.md 的符号链接（兼容其他 AI 工具）
 ├── .algo-espresso.yaml        # 用户配置（语言等）
 ├── templates/                 # 只读模板（不要修改）
-│   ├── plan.md                # 题目清单模板
-│   ├── mistakes.md            # 错误日志模板
+│   ├── checklist.md           # 题目清单模板
 │   ├── progress.md            # 进度追踪模板
 │   └── problems/              # 题目桩、测试、参考答案、元数据
 │       ├── 01_arrays_hashing/
@@ -108,9 +107,8 @@ go-algo-espresso/
 │       ├── 17_math_geometry/      # 数学与几何 — 8 题
 │       └── 18_bit_manipulation/   # 位运算 — 7 题
 ├── my-progress/               # 你的个人工作空间（不纳入 git）
-│   ├── plan.md                # 你的题目清单和进度
-│   ├── mistakes.md            # 你的错误日志
-│   ├── progress.md            # 你的知识点追踪
+│   ├── checklist.md           # 你的题目清单和进度
+│   ├── progress.md            # 你的进度追踪（心得、错误、统计）
 │   └── problems/              # 你的工作副本（在这里写解法）
 ├── tmp/                       # 变体练习题（不纳入 git）
 └── scripts/
