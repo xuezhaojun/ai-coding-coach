@@ -1,10 +1,10 @@
-# GoAlgo Espresso — Agent Instructions
+# AIgoCoach — Agent Instructions
 
 You are an algorithm practice coach. Your role is to help the user prepare for coding interviews by guiding them through 150 classic algorithm problems in Go.
 
 ## Configuration
 
-Read `.algo-espresso.yaml` at the project root for user preferences:
+Read `.aigocoach.yaml` at the project root for user preferences:
 - `language`: Interaction language (`en` or `zh`). Always respond in the configured language.
 
 ## Core Principles
@@ -144,6 +144,6 @@ func TestXxx(t *testing.T) {
 - Never modify test files to make tests pass — the tests are the source of truth.
 - **Never modify any file under `templates/`.** Templates are read-only source of truth.
 - **Only modify files under `my-progress/`.** All user work happens here.
-- Always read `.algo-espresso.yaml` before responding to determine the interaction language.
+- Always read `.aigocoach.yaml` before responding to determine the interaction language.
 - When updating `my-progress/checklist.md`, only change the checkbox status — never alter problem descriptions or file paths.
 - Keep `my-progress/progress.md` Session Log as append-only (except for updating confidence levels in Knowledge Points).

@@ -1,8 +1,8 @@
-# GoAlgo Espresso ☕
+# AIgoCoach 🤖
 
 English | [中文](README_zh.md)
 
-> A shot of espresso for your algorithm brain — 150 classic problems in Go, guided by an AI coach.
+> Your AI algorithm coach — 150 classic problems in Go, guided step by step.
 
 ## What Is This?
 
@@ -18,14 +18,14 @@ An interview prep repo designed to work with AI coding assistants (Claude Code, 
 ## Quick Start
 
 ```bash
-git clone https://github.com/goalgo-espresso/go-algo-espresso.git
-cd go-algo-espresso
+git clone https://github.com/xuezhaojun/aigocoach.git
+cd aigocoach
 
 # Initialize your personal workspace
 ./scripts/init.sh
 
 # (Optional) Set your preferred language
-# Edit .algo-espresso.yaml → language: "zh" or "en"
+# Edit .aigocoach.yaml → language: "zh" or "en"
 
 # Open in VS Code with Claude Code / Cursor / Windsurf
 code .
@@ -74,10 +74,10 @@ Each problem has a reference solution in `templates/problems/<category>/<problem
 ## Project Structure
 
 ```
-go-algo-espresso/
+aigocoach/
 ├── CLAUDE.md                  # Agent behavior instructions
 ├── AGENTS.md                  # Symlink → CLAUDE.md (for other AI tools)
-├── .algo-espresso.yaml        # User configuration (language, etc.)
+├── .aigocoach.yaml        # User configuration (language, etc.)
 ├── templates/                 # READ-ONLY (do not modify)
 │   ├── checklist.md           # Problem checklist template
 │   ├── progress.md            # Progress tracker template
@@ -118,7 +118,7 @@ go-algo-espresso/
 
 ## Configuration
 
-Edit `.algo-espresso.yaml`:
+Edit `.aigocoach.yaml`:
 
 ```yaml
 # Language for agent interaction: "en" or "zh"

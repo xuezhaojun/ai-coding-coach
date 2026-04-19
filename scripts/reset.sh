@@ -4,7 +4,7 @@ set -euo pipefail
 REPO_ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 PROGRESS_DIR="$REPO_ROOT/my-progress"
 
-echo "=== GoAlgo Espresso Reset ==="
+echo "=== AIgoCoach Reset ==="
 echo "This will reset ALL progress, solutions, and tracking files."
 echo ""
 

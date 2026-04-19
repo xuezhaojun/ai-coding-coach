@@ -1,8 +1,8 @@
-# GoAlgo Espresso ☕
+# AIgoCoach 🤖
 
 [English](README.md) | 中文
 
-> 给你的算法大脑来一杯浓缩咖啡 — 150 道经典算法题，用 Go 实现，AI 教练全程引导。
+> 你的 AI 算法教练 — 150 道经典算法题，用 Go 实现，AI 全程引导。
 
 ## 这是什么？
 
@@ -18,14 +18,14 @@
 ## 快速开始
 
 ```bash
-git clone https://github.com/goalgo-espresso/go-algo-espresso.git
-cd go-algo-espresso
+git clone https://github.com/xuezhaojun/aigocoach.git
+cd aigocoach
 
 # 初始化你的个人工作空间
 ./scripts/init.sh
 
 # （可选）设置交互语言
-# 编辑 .algo-espresso.yaml → language: "zh" 或 "en"
+# 编辑 .aigocoach.yaml → language: "zh" 或 "en"
 
 # 用 VS Code 配合 Claude Code / Cursor / Windsurf 打开
 code .
@@ -74,10 +74,10 @@ AI 教练会自动更新 `my-progress/checklist.md`（打勾）和 `my-progress/
 ## 项目结构
 
 ```
-go-algo-espresso/
+aigocoach/
 ├── CLAUDE.md                  # AI 教练行为指令
 ├── AGENTS.md                  # CLAUDE.md 的符号链接（兼容其他 AI 工具）
-├── .algo-espresso.yaml        # 用户配置（语言等）
+├── .aigocoach.yaml        # 用户配置（语言等）
 ├── templates/                 # 只读模板（不要修改）
 │   ├── checklist.md           # 题目清单模板
 │   ├── progress.md            # 进度追踪模板
@@ -118,7 +118,7 @@ go-algo-espresso/
 
 ## 配置
 
-编辑 `.algo-espresso.yaml`：
+编辑 `.aigocoach.yaml`：
 
 ```yaml
 # AI 交互语言："en"（英文）或 "zh"（中文）

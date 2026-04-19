@@ -1,3 +1,3 @@
-module github.com/goalgo-espresso/go-algo-espresso
+module github.com/xuezhaojun/aigocoach
 
 go 1.25.3

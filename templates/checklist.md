@@ -1,4 +1,4 @@
-# GoAlgo Espresso — Problem Checklist
+# AIgoCoach — Problem Checklist
 
 > 150 classic algorithm problems organized by category, ordered by difficulty.
 > Check the box after passing all tests for a problem.
