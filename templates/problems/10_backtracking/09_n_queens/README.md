@@ -7,6 +7,8 @@
 
 ## Description
 
+![n-queens](assets/queens.jpg)
+
 The n-queens puzzle is the problem of placing `n` queens on an `n x n` chessboard such that no two queens attack each other. A queen can attack any piece on the same row, column, or diagonal.
 
 Given an integer `n`, return all distinct solutions to the n-queens puzzle. Each solution contains a distinct board configuration of the n-queens placement, where `'Q'` indicates a queen and `'.'` indicates an empty space.

@@ -17,12 +17,16 @@ Return the minimum cost to make all points connected. All points are connected i
 
 **Example 1:**
 
+![Example 1](assets/d.png)
+
 ```
 Input: points = [[0,0],[2,2],[3,10],[5,2],[7,0]]
 Output: 20
 ```
 
 **Example 2:**
+
+![Example 2](assets/c.png)
 
 ```
 Input: points = [[3,12],[-2,5],[-4,1]]

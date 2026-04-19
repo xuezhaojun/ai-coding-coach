@@ -7,6 +7,8 @@
 
 ## Description
 
+![lowest-common-ancestor-of-a-binary-search-tree](assets/binarysearchtree_improved.png)
+
 Given a binary search tree (BST) and two nodes `p` and `q`, find their lowest common ancestor (LCA). The lowest common ancestor is defined as the deepest node in the tree that has both `p` and `q` as descendants (where a node is allowed to be a descendant of itself). All node values in the BST are unique, and both `p` and `q` are guaranteed to exist in the tree.
 
 ## Examples

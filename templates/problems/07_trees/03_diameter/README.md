@@ -7,6 +7,8 @@
 
 ## Description
 
+![diameter-of-binary-tree](assets/diamtree.jpg)
+
 Given the root of a binary tree, return the length of the diameter of the tree. The diameter of a binary tree is the length of the longest path between any two nodes in the tree. This path may or may not pass through the root. The length of a path is measured by the number of edges between nodes.
 
 ## Examples

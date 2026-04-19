@@ -15,6 +15,8 @@ The word can be constructed from letters of sequentially adjacent cells, where a
 
 **Example 1:**
 
+![Example 1](assets/word2.jpg)
+
 ```
 Input: board = [["A","B","C","E"],["S","F","C","S"],["A","D","E","E"]], word = "ABCCED"
 Output: true
@@ -23,12 +25,16 @@ Explanation: The word "ABCCED" can be found following the path A(0,0)->B(0,1)->C
 
 **Example 2:**
 
+![Example 2](assets/word-1.jpg)
+
 ```
 Input: board = [["A","B","C","E"],["S","F","C","S"],["A","D","E","E"]], word = "SEE"
 Output: true
 ```
 
 **Example 3:**
+
+![Example 3](assets/word3.jpg)
 
 ```
 Input: board = [["A","B","C","E"],["S","F","C","S"],["A","D","E","E"]], word = "ABCB"

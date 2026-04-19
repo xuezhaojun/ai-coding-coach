@@ -7,6 +7,8 @@
 
 ## Description
 
+![k-closest-points-to-origin](assets/closestplane1.jpg)
+
 Given an array of `points` where `points[i] = [xi, yi]` represents a point on the X-Y plane and an integer `k`, return the `k` closest points to the origin `(0, 0)`. The distance between two points on the X-Y plane is the Euclidean distance: `sqrt(xi^2 + yi^2)`. You may return the answer in any order, and the answer is guaranteed to be unique (except for the order in which it is returned).
 
 ## Examples

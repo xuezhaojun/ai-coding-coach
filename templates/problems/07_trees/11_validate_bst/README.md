@@ -13,6 +13,8 @@ Given the root of a binary tree, determine if it is a valid binary search tree (
 
 **Example 1:**
 
+![Example 1](assets/tree1.jpg)
+
 ```
 Input: root = [2,1,3]
 Output: true
@@ -20,6 +22,8 @@ Explanation: Node 1 < 2 (valid left child) and node 3 > 2 (valid right child).
 ```
 
 **Example 2:**
+
+![Example 2](assets/tree2.jpg)
 
 ```
 Input: root = [5,1,4,null,null,3,6]

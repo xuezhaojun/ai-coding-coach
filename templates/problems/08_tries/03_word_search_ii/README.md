@@ -13,6 +13,8 @@ Given an `m x n` board of characters and a list of strings `words`, return all w
 
 **Example 1:**
 
+![Example 1](assets/search1.jpg)
+
 ```
 Input: board = [["o","a","a","n"],["e","t","a","e"],["i","h","k","r"],["i","f","l","v"]], words = ["oath","pea","eat","rain"]
 Output: ["eat","oath"]
@@ -20,6 +22,8 @@ Explanation: "eat" can be formed starting at board[1][2] -> board[1][1] -> board
 ```
 
 **Example 2:**
+
+![Example 2](assets/search2.jpg)
 
 ```
 Input: board = [["a","b"],["c","d"]], words = ["abcb"]

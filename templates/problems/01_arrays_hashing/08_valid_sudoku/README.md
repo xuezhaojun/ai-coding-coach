@@ -15,6 +15,8 @@ Determine if a `9 x 9` Sudoku board is valid. Only the filled cells need to be v
 
 Note that a Sudoku board being valid does not necessarily mean it is solvable. Only the filled cells need to be validated. Empty cells are represented by the character `'.'`.
 
+![Sudoku board example](assets/sudoku_board.png)
+
 ## Examples
 
 **Example 1:**

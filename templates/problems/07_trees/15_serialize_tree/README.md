@@ -7,6 +7,8 @@
 
 ## Description
 
+![serialize-and-deserialize-binary-tree](assets/serdeser.jpg)
+
 Design an algorithm to serialize and deserialize a binary tree. Serialization is the process of converting a tree into a string representation so that it can be stored or transmitted, and deserialization is the process of reconstructing the tree from the string. There is no restriction on how your serialization/deserialization algorithm should work, as long as a binary tree can be serialized to a string and this string can be deserialized back to the original tree structure.
 
 ## Examples

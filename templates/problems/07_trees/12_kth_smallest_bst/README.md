@@ -13,6 +13,8 @@ Given the root of a binary search tree and an integer `k`, return the `k`th smal
 
 **Example 1:**
 
+![Example 1](assets/kthtree1.jpg)
+
 ```
 Input: root = [3,1,4,null,2], k = 1
 Output: 1
@@ -20,6 +22,8 @@ Explanation: The inorder traversal is [1, 2, 3, 4]. The 1st smallest element is 
 ```
 
 **Example 2:**
+
+![Example 2](assets/kthtree2.jpg)
 
 ```
 Input: root = [5,3,6,2,4,null,null,1], k = 3

@@ -17,6 +17,8 @@ Given an integer `target`, return `true` if `target` is in `matrix` or `false` o
 
 **Example 1:**
 
+![Example 1](assets/mat.jpg)
+
 ```
 Input: matrix = [[1,3,5,7],[10,11,16,20],[23,30,34,60]], target = 3
 Output: true
@@ -24,6 +26,8 @@ Explanation: 3 is found in the first row.
 ```
 
 **Example 2:**
+
+![Example 2](assets/mat2.jpg)
 
 ```
 Input: matrix = [[1,3,5,7],[10,11,16,20],[23,30,34,60]], target = 13

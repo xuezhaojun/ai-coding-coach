@@ -17,6 +17,8 @@ Return the head of the copied linked list.
 
 **Example 1:**
 
+![Example 1](assets/e1.png)
+
 ```
 Input: head = [[7,null],[13,0],[11,4],[10,2],[1,0]]
 Output: [[7,null],[13,0],[11,4],[10,2],[1,0]]
@@ -25,6 +27,8 @@ Explanation: Each pair [val, random_index] describes a node. The deep copy prese
 
 **Example 2:**
 
+![Example 2](assets/e2.png)
+
 ```
 Input: head = [[1,1],[2,1]]
 Output: [[1,1],[2,1]]
@@ -32,6 +36,8 @@ Explanation: Node 0's random points to node 1, and node 1's random also points t
 ```
 
 **Example 3:**
+
+![Example 3](assets/e3.png)
 
 ```
 Input: head = [[3,null],[3,0],[3,null]]

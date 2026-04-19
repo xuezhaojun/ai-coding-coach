@@ -17,6 +17,8 @@ You may not alter the values in the list's nodes, only nodes themselves may be c
 
 **Example 1:**
 
+![Example 1](assets/reverse_ex1.jpg)
+
 ```
 Input: head = [1,2,3,4,5], k = 2
 Output: [2,1,4,3,5]
@@ -24,6 +26,8 @@ Explanation: Nodes are reversed in groups of 2. The last node (5) has no complet
 ```
 
 **Example 2:**
+
+![Example 2](assets/reverse_ex2.jpg)
 
 ```
 Input: head = [1,2,3,4,5], k = 3

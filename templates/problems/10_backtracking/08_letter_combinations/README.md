@@ -7,6 +7,8 @@
 
 ## Description
 
+![letter-combinations-of-a-phone-number](assets/1200px-telephone-keypad2svg.png)
+
 Given a string containing digits from `2-9` inclusive, return all possible letter combinations that the number could represent. Return the answer in any order.
 
 The mapping of digits to letters is the same as on a telephone keypad: 2 maps to "abc", 3 to "def", 4 to "ghi", 5 to "jkl", 6 to "mno", 7 to "pqrs", 8 to "tuv", and 9 to "wxyz". Note that digit 1 does not map to any letters.

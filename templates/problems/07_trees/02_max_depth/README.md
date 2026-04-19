@@ -7,6 +7,8 @@
 
 ## Description
 
+![maximum-depth-of-binary-tree](assets/tmp-tree.jpg)
+
 Given the root of a binary tree, return its maximum depth. The maximum depth is the number of nodes along the longest path from the root node down to the farthest leaf node. A leaf is a node with no children.
 
 ## Examples

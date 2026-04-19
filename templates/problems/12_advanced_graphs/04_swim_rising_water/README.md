@@ -17,6 +17,8 @@ You start at the top-left square `(0, 0)`. What is the least time until you can 
 
 **Example 1:**
 
+![Example 1](assets/swim1-grid.jpg)
+
 ```
 Input: grid = [[0,2],[1,3]]
 Output: 3
@@ -24,6 +26,8 @@ Explanation: At time 3, you can swim from (0,0) to (1,0) to (1,1). All elevation
 ```
 
 **Example 2:**
+
+![Example 2](assets/swim2-grid-1.jpg)
 
 ```
 Input: grid = [

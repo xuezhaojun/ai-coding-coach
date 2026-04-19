@@ -15,6 +15,8 @@ The rectangle must be formed by contiguous bars, and its height is limited by th
 
 **Example 1:**
 
+![Example 1](assets/histogram.jpg)
+
 ```
 Input: heights = [2,1,5,6,2,3]
 Output: 10
@@ -22,6 +24,8 @@ Explanation: The largest rectangle has area = 5 * 2 = 10 (formed by bars at indi
 ```
 
 **Example 2:**
+
+![Example 2](assets/histogram-1.jpg)
 
 ```
 Input: heights = [5]

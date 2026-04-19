@@ -13,6 +13,8 @@ Given a binary tree `root`, a node X in the tree is named "good" if in the path 
 
 **Example 1:**
 
+![Example 1](assets/test_sample_1.png)
+
 ```
 Input: root = [3,1,4,3,null,1,5]
 Output: 4
@@ -20,6 +22,8 @@ Explanation: The good nodes are: root node 3, node 3 (left-left, path max is 3),
 ```
 
 **Example 2:**
+
+![Example 2](assets/test_sample_2.png)
 
 ```
 Input: root = [3,3,null,4,2]

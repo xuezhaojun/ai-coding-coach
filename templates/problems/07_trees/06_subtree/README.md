@@ -13,6 +13,8 @@ Given the roots of two binary trees `root` and `subRoot`, return `true` if there
 
 **Example 1:**
 
+![Example 1](assets/subtree1-tree.jpg)
+
 ```
 Input: root = [3,4,5,1,2], subRoot = [4,1,2]
 Output: true
@@ -20,6 +22,8 @@ Explanation: The subtree rooted at node 4 in root matches subRoot exactly.
 ```
 
 **Example 2:**
+
+![Example 2](assets/subtree2-tree.jpg)
 
 ```
 Input: root = [3,4,5,1,2,null,null,null,null,0], subRoot = [4,1,2]

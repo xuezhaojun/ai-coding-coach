@@ -13,6 +13,8 @@ Given a binary tree, determine if it is height-balanced. A binary tree is height
 
 **Example 1:**
 
+![Example 1](assets/balance_1.jpg)
+
 ```
 Input: root = [3,9,20,null,null,15,7]
 Output: true
@@ -20,6 +22,8 @@ Explanation: The left subtree has height 1, the right subtree has height 2. The 
 ```
 
 **Example 2:**
+
+![Example 2](assets/balance_2.jpg)
 
 ```
 Input: root = [1,2,2,3,3,null,null,4,4]

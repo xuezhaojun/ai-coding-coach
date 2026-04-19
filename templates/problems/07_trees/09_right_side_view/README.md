@@ -13,6 +13,8 @@ Given the root of a binary tree, imagine yourself standing on the right side of 
 
 **Example 1:**
 
+![Example 1](assets/tmpd5jn43fs-1.png)
+
 ```
 Input: root = [1,2,3,null,5,null,4]
 Output: [1,3,4]
@@ -20,6 +22,8 @@ Explanation: At level 0 you see node 1, at level 1 you see node 3 (rightmost), a
 ```
 
 **Example 2:**
+
+![Example 2](assets/tmpkpe40xeh-1.png)
 
 ```
 Input: root = [1,null,3]

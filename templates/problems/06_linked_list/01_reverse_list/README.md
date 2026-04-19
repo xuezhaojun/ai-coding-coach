@@ -15,6 +15,8 @@ Each node in the linked list contains a single integer value and a pointer to th
 
 **Example 1:**
 
+![Example 1](assets/rev1ex1.jpg)
+
 ```
 Input: head = [1,2,3,4,5]
 Output: [5,4,3,2,1]
@@ -22,6 +24,8 @@ Explanation: The list 1->2->3->4->5 becomes 5->4->3->2->1.
 ```
 
 **Example 2:**
+
+![Example 2](assets/rev1ex2.jpg)
 
 ```
 Input: head = [1,2]

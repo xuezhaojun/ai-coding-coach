@@ -21,6 +21,8 @@ You may not modify the values in the list's nodes. Only nodes themselves may be 
 
 **Example 1:**
 
+![Example 1](assets/reorder1linked-list.jpg)
+
 ```
 Input: head = [1,2,3,4]
 Output: [1,4,2,3]
@@ -28,6 +30,8 @@ Explanation: The list is reordered by interleaving from both ends.
 ```
 
 **Example 2:**
+
+![Example 2](assets/reorder2-linked-list.jpg)
 
 ```
 Input: head = [1,2,3,4,5]

@@ -7,6 +7,8 @@
 
 ## Description
 
+![trapping-rain-water](assets/rainwatertrap.png)
+
 Given `n` non-negative integers representing an elevation map where the width of each bar is 1, compute how much water it can trap after raining.
 
 The amount of water that can be trapped above each bar is determined by the minimum of the maximum height to its left and the maximum height to its right, minus the bar's own height. If this value is negative, no water is trapped at that position.

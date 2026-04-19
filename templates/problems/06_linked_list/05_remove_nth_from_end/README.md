@@ -7,6 +7,8 @@
 
 ## Description
 
+![remove-nth-node-from-end-of-list](assets/remove_ex1.jpg)
+
 Given the `head` of a linked list, remove the `n`th node from the end of the list and return its head.
 
 The problem guarantees that `n` is always valid -- that is, `n` will always be less than or equal to the length of the list.

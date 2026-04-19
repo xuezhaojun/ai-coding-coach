@@ -15,6 +15,8 @@ The graph is represented in the test case using an adjacency list. Each node's v
 
 **Example 1:**
 
+![Example 1](assets/133_clone_graph_question.png)
+
 ```
 Input: adjList = [[2,4],[1,3],[2,4],[1,3]]
 Output: [[2,4],[1,3],[2,4],[1,3]]
@@ -22,6 +24,8 @@ Explanation: There are 4 nodes in the graph. Node 1 connects to nodes 2 and 4. N
 ```
 
 **Example 2:**
+
+![Example 2](assets/graph.png)
 
 ```
 Input: adjList = [[]]

@@ -7,6 +7,8 @@
 
 ## Description
 
+![rotting-oranges](assets/oranges.png)
+
 You are given an `m x n` grid where each cell can have one of three values:
 
 - `0` representing an empty cell,

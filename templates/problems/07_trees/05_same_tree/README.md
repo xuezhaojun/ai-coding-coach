@@ -13,6 +13,8 @@ Given the roots of two binary trees `p` and `q`, write a function to check if th
 
 **Example 1:**
 
+![Example 1](assets/ex1.jpg)
+
 ```
 Input: p = [1,2,3], q = [1,2,3]
 Output: true
@@ -21,6 +23,8 @@ Explanation: Both trees have the same structure and same node values.
 
 **Example 2:**
 
+![Example 2](assets/ex2.jpg)
+
 ```
 Input: p = [1,2], q = [1,null,2]
 Output: false
@@ -28,6 +32,8 @@ Explanation: The first tree has 2 as a left child, but the second tree has 2 as 
 ```
 
 **Example 3:**
+
+![Example 3](assets/ex3.jpg)
 
 ```
 Input: p = [1,2,1], q = [1,1,2]

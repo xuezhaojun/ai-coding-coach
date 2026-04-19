@@ -17,6 +17,8 @@ Return `true` if there is a cycle in the linked list. Otherwise, return `false`.
 
 **Example 1:**
 
+![Example 1](assets/circularlinkedlist.png)
+
 ```
 Input: head = [3,2,0,-4], pos = 1
 Output: true
@@ -25,6 +27,8 @@ Explanation: There is a cycle in the linked list, where the tail connects to the
 
 **Example 2:**
 
+![Example 2](assets/circularlinkedlist_test2.png)
+
 ```
 Input: head = [1,2], pos = 0
 Output: true
@@ -32,6 +36,8 @@ Explanation: There is a cycle in the linked list, where the tail connects to the
 ```
 
 **Example 3:**
+
+![Example 3](assets/circularlinkedlist_test3.png)
 
 ```
 Input: head = [1], pos = -1

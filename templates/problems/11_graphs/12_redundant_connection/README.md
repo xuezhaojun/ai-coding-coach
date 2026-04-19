@@ -15,12 +15,16 @@ Return an edge that can be removed so that the resulting graph is a tree of `n` 
 
 **Example 1:**
 
+![Example 1](assets/reduntant1-1-graph.jpg)
+
 ```
 Input: edges = [[1,2],[1,3],[2,3]]
 Output: [2,3]
 ```
 
 **Example 2:**
+
+![Example 2](assets/reduntant1-2-graph.jpg)
 
 ```
 Input: edges = [[1,2],[2,3],[3,4],[1,4],[1,5]]

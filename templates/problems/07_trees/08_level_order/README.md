@@ -7,6 +7,8 @@
 
 ## Description
 
+![binary-tree-level-order-traversal](assets/tree1.jpg)
+
 Given the root of a binary tree, return the level order traversal of its nodes' values. Level order traversal processes nodes from left to right, level by level, starting from the root. The result is a list of lists, where each inner list contains the values of nodes at the corresponding depth level.
 
 ## Examples

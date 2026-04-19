@@ -7,6 +7,8 @@
 
 ## Description
 
+![detect-squares](assets/image.png)
+
 You are given a stream of points on the X-Y plane. Design a data structure that supports the following operations:
 
 - **Add** a new point to the data structure. Duplicate points are allowed and should be counted separately.

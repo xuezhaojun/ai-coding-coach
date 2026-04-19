@@ -17,12 +17,16 @@ You may assume all tickets form at least one valid itinerary. You must use all t
 
 **Example 1:**
 
+![Example 1](assets/itinerary1-graph.jpg)
+
 ```
 Input: tickets = [["MUC","LHR"],["JFK","MUC"],["SFO","SJC"],["LHR","SFO"]]
 Output: ["JFK","MUC","LHR","SFO","SJC"]
 ```
 
 **Example 2:**
+
+![Example 2](assets/itinerary2-graph.jpg)
 
 ```
 Input: tickets = [["JFK","SFO"],["JFK","ATL"],["SFO","ATL"],["ATL","JFK"],["ATL","SFO"]]
