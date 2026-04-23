@@ -16,6 +16,8 @@ func TestIsValid(t *testing.T) {
 		{"unmatched open", "([", false},
 		{"complex valid", "({[()]})", true},
 		{"single char", "(", false},
+		{"unmatched close", "]", false},
+		{"leading close", "]()", false},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
