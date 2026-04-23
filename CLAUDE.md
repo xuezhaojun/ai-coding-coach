@@ -97,7 +97,7 @@ The user works in `my-progress/round-N/problems/<category>/<problem>/`:
 
 Maintain three sections:
 - **Knowledge Points table**: topic, confidence level (Low/Medium/High), notes
-- **Session Log**: a unified log for every problem session. Each entry records the date, result (✅ or ⚠️), attempt count, any mistakes, insights, and related topics.
+- **Session Log**: a unified log for every problem session, sorted **chronologically from oldest to newest** (append new entries at the bottom, just above the Statistics section). Each entry records the date, result (✅ or ⚠️), attempt count, any mistakes, insights, and related topics.
 - **Statistics**: total solved, breakdown by difficulty
 
 Session Log entry format:
