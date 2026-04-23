@@ -2,47 +2,66 @@
 set -euo pipefail
 
 REPO_ROOT="$(cd "$(dirname "$0")/.." && pwd)"
-PROGRESS_DIR="$REPO_ROOT/my-progress"
 TEMPLATES_DIR="$REPO_ROOT/templates"
 
-if [ -d "$PROGRESS_DIR" ]; then
-    echo "my-progress/ already exists."
+# Determine round number: argument > .aigocoach.yaml > default 1
+if [ $# -ge 1 ]; then
+    ROUND="$1"
+else
+    ROUND=$(grep 'current_round:' "$REPO_ROOT/.aigocoach.yaml" 2>/dev/null | awk '{print $2}' || echo "1")
+fi
+
+ROUND_DIR="$REPO_ROOT/my-progress/round-${ROUND}"
+
+echo "=== AIgoCoach — Round $ROUND ==="
+
+if [ -d "$ROUND_DIR" ]; then
+    echo "my-progress/round-${ROUND}/ already exists."
     read -p "Overwrite and start fresh? (y/N) " -n 1 -r
     echo ""
     if [[ ! $REPLY =~ ^[Yy]$ ]]; then
         echo "Aborted."
         exit 0
     fi
-    rm -rf "$PROGRESS_DIR"
+    rm -rf "$ROUND_DIR"
 fi
 
-echo "Initializing my-progress/ from templates..."
-mkdir -p "$PROGRESS_DIR"
+echo "Initializing my-progress/round-${ROUND}/ from templates..."
+mkdir -p "$ROUND_DIR"
 
 # Copy tracking files
-cp "$TEMPLATES_DIR/checklist.md" "$PROGRESS_DIR/checklist.md"
-cp "$TEMPLATES_DIR/progress.md" "$PROGRESS_DIR/progress.md"
+cp "$TEMPLATES_DIR/checklist.md" "$ROUND_DIR/checklist.md"
+cp "$TEMPLATES_DIR/progress.md" "$ROUND_DIR/progress.md"
 
 # Copy problem stubs, tests, solutions, and READMEs
 echo "Copying problem files..."
 cd "$TEMPLATES_DIR/problems"
 find . -type d | while read -r dir; do
-    mkdir -p "$PROGRESS_DIR/problems/$dir"
+    mkdir -p "$ROUND_DIR/problems/$dir"
 done
 
 find . -name "*.go" -o -name "README.md" -o -name "README_zh.md" \
     | while read -r file; do
-    cp "$file" "$PROGRESS_DIR/problems/$file"
+    cp "$file" "$ROUND_DIR/problems/$file"
 done
 
+# Copy assets if any
+find . -path "*/assets/*" -type f 2>/dev/null | while read -r file; do
+    cp "$file" "$ROUND_DIR/problems/$file"
+done
+
+# Update current_round in .aigocoach.yaml
+sed -i '' "s/^current_round:.*/current_round: ${ROUND}/" "$REPO_ROOT/.aigocoach.yaml"
+
 echo ""
-echo "Done! Your workspace is ready at my-progress/"
+echo "Done! Your workspace is ready at my-progress/round-${ROUND}/"
 echo ""
-echo "  my-progress/"
+echo "  my-progress/round-${ROUND}/"
 echo "  ├── checklist.md   — your problem checklist"
-echo "  ├── progress.md   — your progress tracker (insights, mistakes, stats)"
+echo "  ├── progress.md    — your progress tracker"
 echo "  └── problems/      — write your solutions here"
 echo ""
+echo "Start a new round:   ./scripts/init.sh <round-number>"
 echo "Reference solutions: templates/problems/<category>/<problem>/solution.go"
 echo "Problem info:        templates/problems/<category>/<problem>/README.md"
 echo ""
