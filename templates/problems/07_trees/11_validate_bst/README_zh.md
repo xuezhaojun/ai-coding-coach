@@ -13,6 +13,8 @@
 
 **示例 1:**
 
+
+![示例 1](assets/tree1.jpg)
 ```
 输入: root = [2,1,3]
 输出: true
@@ -21,6 +23,8 @@
 
 **示例 2:**
 
+
+![示例 2](assets/tree2.jpg)
 ```
 输入: root = [5,1,4,null,null,3,6]
 输出: false

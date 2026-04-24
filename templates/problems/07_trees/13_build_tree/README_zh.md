@@ -9,6 +9,8 @@
 
 给定两个整数数组 `preorder` 和 `inorder`，其中 `preorder` 是二叉树的前序遍历，`inorder` 是同一棵树的中序遍历，请构造并返回该二叉树。保证数组中的值唯一且两个数组长度相同。
 
+![construct-binary-tree-from-preorder-and-inorder-traversal](assets/tree.jpg)
+
 ## 示例
 
 **示例 1:**

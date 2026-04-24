@@ -17,6 +17,8 @@
 
 **示例 1：**
 
+
+![示例 1](assets/circularlinkedlist.png)
 ```
 输入：head = [3,2,0,-4], pos = 1
 输出：true
@@ -25,6 +27,8 @@
 
 **示例 2：**
 
+
+![示例 2](assets/circularlinkedlist_test2.png)
 ```
 输入：head = [1,2], pos = 0
 输出：true
@@ -33,6 +37,8 @@
 
 **示例 3：**
 
+
+![示例 3](assets/circularlinkedlist_test3.png)
 ```
 输入：head = [1], pos = -1
 输出：false

@@ -13,6 +13,8 @@
 
 **示例 1:**
 
+
+![示例 1](assets/test_sample_1.png)
 ```
 输入: root = [3,1,4,3,null,1,5]
 输出: 4
@@ -21,6 +23,8 @@
 
 **示例 2:**
 
+
+![示例 2](assets/test_sample_2.png)
 ```
 输入: root = [3,3,null,4,2]
 输出: 3

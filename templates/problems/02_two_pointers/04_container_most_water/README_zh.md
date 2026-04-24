@@ -13,6 +13,8 @@
 
 注意：你不能倾斜容器。
 
+![container-with-most-water](assets/question_11.jpg)
+
 ## 示例
 
 **示例 1：**

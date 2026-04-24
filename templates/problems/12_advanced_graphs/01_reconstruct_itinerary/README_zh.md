@@ -17,6 +17,8 @@
 
 **示例 1:**
 
+
+![示例 1](assets/itinerary1-graph.jpg)
 ```
 输入: tickets = [["MUC","LHR"],["JFK","MUC"],["SFO","SJC"],["LHR","SFO"]]
 输出: ["JFK","MUC","LHR","SFO","SJC"]
@@ -24,6 +26,8 @@
 
 **示例 2:**
 
+
+![示例 2](assets/itinerary2-graph.jpg)
 ```
 输入: tickets = [["JFK","SFO"],["JFK","ATL"],["SFO","ATL"],["ATL","JFK"],["ATL","SFO"]]
 输出: ["JFK","ATL","JFK","SFO","ATL","SFO"]

@@ -13,6 +13,8 @@
 
 **示例 1:**
 
+
+![示例 1](assets/search1.jpg)
 ```
 输入: board = [["o","a","a","n"],["e","t","a","e"],["i","h","k","r"],["i","f","l","v"]], words = ["oath","pea","eat","rain"]
 输出: ["eat","oath"]
@@ -21,6 +23,8 @@
 
 **示例 2:**
 
+
+![示例 2](assets/search2.jpg)
 ```
 输入: board = [["a","b"],["c","d"]], words = ["abcb"]
 输出: []

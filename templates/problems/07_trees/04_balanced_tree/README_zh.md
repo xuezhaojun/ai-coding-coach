@@ -13,6 +13,8 @@
 
 **示例 1:**
 
+
+![示例 1](assets/balance_1.jpg)
 ```
 输入: root = [3,9,20,null,null,15,7]
 输出: true
@@ -21,6 +23,8 @@
 
 **示例 2:**
 
+
+![示例 2](assets/balance_2.jpg)
 ```
 输入: root = [1,2,2,3,3,null,null,4,4]
 输出: false

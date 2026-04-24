@@ -15,6 +15,8 @@
 
 **示例 1:**
 
+
+![示例 1](assets/word2.jpg)
 ```
 输入: board = [["A","B","C","E"],["S","F","C","S"],["A","D","E","E"]], word = "ABCCED"
 输出: true
@@ -23,6 +25,8 @@
 
 **示例 2:**
 
+
+![示例 2](assets/word-1.jpg)
 ```
 输入: board = [["A","B","C","E"],["S","F","C","S"],["A","D","E","E"]], word = "SEE"
 输出: true
@@ -30,6 +34,8 @@
 
 **示例 3:**
 
+
+![示例 3](assets/word3.jpg)
 ```
 输入: board = [["A","B","C","E"],["S","F","C","S"],["A","D","E","E"]], word = "ABCB"
 输出: false

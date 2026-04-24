@@ -13,6 +13,8 @@
 
 **示例 1:**
 
+
+![示例 1](assets/subtree1-tree.jpg)
 ```
 输入: root = [3,4,5,1,2], subRoot = [4,1,2]
 输出: true
@@ -21,6 +23,8 @@
 
 **示例 2:**
 
+
+![示例 2](assets/subtree2-tree.jpg)
 ```
 输入: root = [3,4,5,1,2,null,null,null,null,0], subRoot = [4,1,2]
 输出: false

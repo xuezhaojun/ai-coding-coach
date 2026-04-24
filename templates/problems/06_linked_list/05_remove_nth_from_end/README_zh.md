@@ -11,6 +11,8 @@
 
 题目保证 `n` 总是有效的，即 `n` 总是小于或等于链表的长度。
 
+![remove-nth-node-from-end-of-list](assets/remove_ex1.jpg)
+
 ## 示例
 
 **示例 1：**

@@ -15,6 +15,8 @@
 
 **示例 1：**
 
+
+![示例 1](assets/histogram.jpg)
 ```
 输入：heights = [2,1,5,6,2,3]
 输出：10
@@ -23,6 +25,8 @@
 
 **示例 2：**
 
+
+![示例 2](assets/histogram-1.jpg)
 ```
 输入：heights = [5]
 输出：5

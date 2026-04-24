@@ -11,6 +11,8 @@
 
 数字到字母的映射与电话按键相同：2 对应 "abc"，3 对应 "def"，4 对应 "ghi"，5 对应 "jkl"，6 对应 "mno"，7 对应 "pqrs"，8 对应 "tuv"，9 对应 "wxyz"。注意数字 1 不对应任何字母。
 
+![letter-combinations-of-a-phone-number](assets/1200px-telephone-keypad2svg.png)
+
 ## 示例
 
 **示例 1:**

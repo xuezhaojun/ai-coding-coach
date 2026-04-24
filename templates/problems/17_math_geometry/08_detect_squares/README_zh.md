@@ -14,6 +14,8 @@
 
 实现 `DetectSquares` 结构体，包括 `Constructor()`、`Add(point []int)` 和 `Count(point []int) int`。
 
+![detect-squares](assets/image.png)
+
 ## 示例
 
 **示例 1:**

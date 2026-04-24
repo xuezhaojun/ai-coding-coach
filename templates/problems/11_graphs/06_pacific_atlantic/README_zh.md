@@ -15,6 +15,8 @@
 
 返回一个二维列表，其中 `result[i] = [ri, ci]` 表示雨水从单元格 `(ri, ci)` 流动既可以流到太平洋，也可以流到大西洋。
 
+![pacific-atlantic-water-flow](assets/waterflow-grid.jpg)
+
 ## 示例
 
 **示例 1:**

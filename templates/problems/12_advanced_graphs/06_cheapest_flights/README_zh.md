@@ -17,6 +17,8 @@
 
 **示例 1:**
 
+
+![示例 1](assets/cheapest-flights-within-k-stops-3drawio.png)
 ```
 输入: n = 4, flights = [[0,1,100],[1,2,100],[2,0,100],[1,3,600],[2,3,200]], src = 0, dst = 3, k = 1
 输出: 700
@@ -25,6 +27,8 @@
 
 **示例 2:**
 
+
+![示例 2](assets/cheapest-flights-within-k-stops-1drawio.png)
 ```
 输入: n = 3, flights = [[0,1,100],[1,2,100],[0,2,500]], src = 0, dst = 2, k = 1
 输出: 200
@@ -33,6 +37,8 @@
 
 **示例 3:**
 
+
+![示例 3](assets/cheapest-flights-within-k-stops-2drawio.png)
 ```
 输入: n = 3, flights = [[0,1,100]], src = 0, dst = 2, k = 1
 输出: -1

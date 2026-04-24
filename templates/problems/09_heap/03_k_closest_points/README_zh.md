@@ -9,6 +9,8 @@
 
 给定一个点数组 `points`，其中 `points[i] = [xi, yi]` 表示 X-Y 平面上的一个点，以及一个整数 `k`，返回离原点 `(0, 0)` 最近的 `k` 个点。两点之间的距离为欧几里得距离：`sqrt(xi^2 + yi^2)`。可以按任意顺序返回答案，答案保证唯一（除了返回的顺序可能不同）。
 
+![k-closest-points-to-origin](assets/closestplane1.jpg)
+
 ## 示例
 
 **示例 1:**

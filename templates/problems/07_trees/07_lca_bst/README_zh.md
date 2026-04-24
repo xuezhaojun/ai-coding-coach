@@ -9,6 +9,8 @@
 
 给定一个二叉搜索树（BST）以及两个节点 `p` 和 `q`，找到它们的最近公共祖先（LCA）。最近公共祖先是指在树中同时拥有 `p` 和 `q` 作为后代的最深节点（一个节点也可以是它自己的后代）。BST 中所有节点的值唯一，且 `p` 和 `q` 保证存在于树中。
 
+![lowest-common-ancestor-of-a-binary-search-tree](assets/binarysearchtree_improved.png)
+
 ## 示例
 
 **示例 1:**

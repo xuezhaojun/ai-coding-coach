@@ -21,6 +21,8 @@
 
 **示例 1：**
 
+
+![示例 1](assets/reorder1linked-list.jpg)
 ```
 输入：head = [1,2,3,4]
 输出：[1,4,2,3]
@@ -29,6 +31,8 @@
 
 **示例 2：**
 
+
+![示例 2](assets/reorder2-linked-list.jpg)
 ```
 输入：head = [1,2,3,4,5]
 输出：[1,5,2,4,3]

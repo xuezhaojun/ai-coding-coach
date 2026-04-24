@@ -11,6 +11,8 @@
 
 返回合并后的链表的头节点。
 
+![merge-two-sorted-lists](assets/merge_ex1.jpg)
+
 ## 示例
 
 **示例 1：**
