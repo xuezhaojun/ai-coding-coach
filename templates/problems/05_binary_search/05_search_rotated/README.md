@@ -3,7 +3,7 @@
 - **Difficulty**: Medium
 - **Category**: Binary Search
 - **Topics**: binary search, array
-- **Link**: [NeetCode](https://neetcode.io/problems/search-in-rotated-sorted-array) | [LeetCode 33](https://leetcode.com/problems/search-in-rotated-sorted-array/)
+- **Link**: [NeetCode](https://neetcode.io/problems/find-target-in-rotated-sorted-array) | [LeetCode 33](https://leetcode.com/problems/search-in-rotated-sorted-array/)
 
 ## Description
 

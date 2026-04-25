@@ -3,7 +3,7 @@
 - **难度**：中等
 - **分类**：二分查找
 - **考点**：二分查找、数组
-- **链接**：[NeetCode](https://neetcode.io/problems/search-in-rotated-sorted-array) | [力扣 33](https://leetcode.cn/problems/search-in-rotated-sorted-array/)
+- **链接**：[NeetCode](https://neetcode.io/problems/find-target-in-rotated-sorted-array) | [力扣 33](https://leetcode.cn/problems/search-in-rotated-sorted-array/)
 
 ## 题目描述
 
