@@ -14,6 +14,7 @@ func TestIsBalanced(t *testing.T) {
 		{"single node", []int{1}, true},
 		{"two levels balanced", []int{1, 2, 3}, true},
 		{"left heavy by one", []int{1, 2, -101, 3}, false},
+		{"deep unbalanced with right depth 0", []int{1, 2, -101, 3, -101, 4}, false},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
