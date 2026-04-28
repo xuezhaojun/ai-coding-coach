@@ -1,13 +1,18 @@
 package word_dictionary
 
+type solveTrieNode struct {
+	Children map[byte]*solveTrieNode
+	IsEnd    bool
+}
+
 // SolveWordDictionary supports adding words and searching with '.' wildcards.
 type SolveWordDictionary struct {
-	Root *TrieNode
+	Root *solveTrieNode
 }
 
 // NewSolveWordDictionary creates and returns a new SolveWordDictionary.
 func NewSolveWordDictionary() SolveWordDictionary {
-	return SolveWordDictionary{Root: &TrieNode{Children: make(map[byte]*TrieNode)}}
+	return SolveWordDictionary{Root: &solveTrieNode{Children: make(map[byte]*solveTrieNode)}}
 }
 
 // AddWord adds a word to the dictionary.
@@ -17,7 +22,7 @@ func (wd *SolveWordDictionary) AddWord(word string) {
 	for i := 0; i < len(word); i++ {
 		c := word[i]
 		if node.Children[c] == nil {
-			node.Children[c] = &TrieNode{Children: make(map[byte]*TrieNode)}
+			node.Children[c] = &solveTrieNode{Children: make(map[byte]*solveTrieNode)}
 		}
 		node = node.Children[c]
 	}
@@ -31,7 +36,7 @@ func (wd *SolveWordDictionary) Search(word string) bool {
 	return searchNode(wd.Root, word, 0)
 }
 
-func searchNode(node *TrieNode, word string, i int) bool {
+func searchNode(node *solveTrieNode, word string, i int) bool {
 	if i == len(word) {
 		return node.IsEnd
 	}

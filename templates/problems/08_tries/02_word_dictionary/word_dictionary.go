@@ -1,8 +1,8 @@
 package word_dictionary
 
 // WordDictionary supports adding words and searching with '.' wildcards.
+// Design the data structure yourself.
 type WordDictionary struct {
-	Root *TrieNode
 }
 
 // NewWordDictionary creates and returns a new WordDictionary.
