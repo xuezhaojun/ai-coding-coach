@@ -77,7 +77,7 @@ Each problem has a reference solution in `templates/problems/<category>/<problem
 aigocoach/
 ├── CLAUDE.md                  # Agent behavior instructions
 ├── AGENTS.md                  # Symlink → CLAUDE.md (for other AI tools)
-├── .aigocoach.yaml        # User configuration (language, etc.)
+├── .aigocoach.yaml        # User configuration (gitignored, created by init.sh)
 ├── templates/                 # READ-ONLY (do not modify)
 │   ├── checklist.md           # Problem checklist template
 │   ├── progress.md            # Progress tracker template
@@ -107,9 +107,12 @@ aigocoach/
 │       ├── 17_math_geometry/      # 8 problems
 │       └── 18_bit_manipulation/   # 7 problems
 ├── my-progress/               # Your personal workspace (gitignored)
-│   ├── checklist.md           # Your problem checklist with progress
-│   ├── progress.md            # Your progress tracker (insights, mistakes, stats)
-│   └── problems/              # Your working copies (write solutions here)
+│   ├── round-1/               # Round 1
+│   │   ├── checklist.md       # Your problem checklist with progress
+│   │   ├── progress.md        # Your progress tracker (insights, mistakes, stats)
+│   │   └── problems/          # Your working copies (write solutions here)
+│   ├── round-2/               # Round 2 (fresh copy)
+│   └── ...
 ├── tmp/                       # Variant problems (gitignored)
 └── scripts/
     ├── init.sh                # Initialize my-progress/ from templates
@@ -118,12 +121,38 @@ aigocoach/
 
 ## Configuration
 
-Edit `.aigocoach.yaml`:
+`.aigocoach.yaml` is your personal configuration file (gitignored). It is automatically created when you run `./scripts/init.sh`. You can also create it manually:
 
 ```yaml
 # Language for agent interaction: "en" or "zh"
 language: en
+
+# Current practice round (1, 2, 3, ...)
+# Each round creates a fresh copy of all problems under my-progress/round-N/
+current_round: 1
 ```
+
+| Field | Description | Default |
+|-------|-------------|---------|
+| `language` | Agent interaction language. `"en"` for English, `"zh"` for Chinese. | `en` |
+| `current_round` | Active practice round number. Determines which `my-progress/round-N/` directory the agent uses. Updated automatically by `./scripts/init.sh <N>`. | `1` |
+
+### Multi-Round Practice
+
+You can practice all 150 problems multiple times. Each round gets a fresh workspace:
+
+```bash
+# Start round 1 (default)
+./scripts/init.sh
+
+# Start round 2 (fresh copy of all problems)
+./scripts/init.sh 2
+
+# Start round 3
+./scripts/init.sh 3
+```
+
+Each round is stored independently under `my-progress/round-N/` with its own checklist and progress tracker. Previous rounds are preserved so you can compare improvement over time.
 
 ## License
 

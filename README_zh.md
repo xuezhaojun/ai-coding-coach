@@ -77,7 +77,7 @@ AI 教练会自动更新 `my-progress/checklist.md`（打勾）和 `my-progress/
 aigocoach/
 ├── CLAUDE.md                  # AI 教练行为指令
 ├── AGENTS.md                  # CLAUDE.md 的符号链接（兼容其他 AI 工具）
-├── .aigocoach.yaml        # 用户配置（语言等）
+├── .aigocoach.yaml        # 用户配置（已加入 gitignore，由 init.sh 创建）
 ├── templates/                 # 只读模板（不要修改）
 │   ├── checklist.md           # 题目清单模板
 │   ├── progress.md            # 进度追踪模板
@@ -107,9 +107,12 @@ aigocoach/
 │       ├── 17_math_geometry/      # 数学与几何 — 8 题
 │       └── 18_bit_manipulation/   # 位运算 — 7 题
 ├── my-progress/               # 你的个人工作空间（不纳入 git）
-│   ├── checklist.md           # 你的题目清单和进度
-│   ├── progress.md            # 你的进度追踪（心得、错误、统计）
-│   └── problems/              # 你的工作副本（在这里写解法）
+│   ├── round-1/               # 第 1 轮
+│   │   ├── checklist.md       # 你的题目清单和进度
+│   │   ├── progress.md        # 你的进度追踪（心得、错误、统计）
+│   │   └── problems/          # 你的工作副本（在这里写解法）
+│   ├── round-2/               # 第 2 轮（全新副本）
+│   └── ...
 ├── tmp/                       # 变体练习题（不纳入 git）
 └── scripts/
     ├── init.sh                # 从模板初始化 my-progress/
@@ -118,12 +121,38 @@ aigocoach/
 
 ## 配置
 
-编辑 `.aigocoach.yaml`：
+`.aigocoach.yaml` 是你的个人配置文件（已加入 gitignore）。运行 `./scripts/init.sh` 时会自动创建。你也可以手动创建：
 
 ```yaml
 # AI 交互语言："en"（英文）或 "zh"（中文）
 language: en
+
+# 当前练习轮次（1, 2, 3, ...）
+# 每一轮会在 my-progress/round-N/ 下创建全部题目的新副本
+current_round: 1
 ```
+
+| 字段 | 说明 | 默认值 |
+|------|------|--------|
+| `language` | AI 交互语言。`"en"` 英文，`"zh"` 中文。 | `en` |
+| `current_round` | 当前练习轮次。决定 AI 教练使用哪个 `my-progress/round-N/` 目录。运行 `./scripts/init.sh <N>` 时自动更新。 | `1` |
+
+### 多轮练习
+
+你可以多次刷完全部 150 道题。每一轮都有全新的工作空间：
+
+```bash
+# 开始第 1 轮（默认）
+./scripts/init.sh
+
+# 开始第 2 轮（全部题目的新副本）
+./scripts/init.sh 2
+
+# 开始第 3 轮
+./scripts/init.sh 3
+```
+
+每一轮独立存放在 `my-progress/round-N/` 下，拥有各自的题目清单和进度记录。之前的轮次会保留，方便你对比不同轮次的进步。
 
 ## 许可证
 
