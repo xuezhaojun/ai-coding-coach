@@ -1,7 +1,0 @@
-# AIgoCoach Configuration
-# Language for agent interaction: "en" or "zh"
-language: "zh"
-
-# Current practice round (1, 2, 3, ...)
-# Each round creates a fresh copy of all problems under my-progress/round-N/
-current_round: 1

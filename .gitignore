@@ -4,3 +4,4 @@ my-progress/
 *.test
 *.out
 .DS_Store
+.aigocoach.yaml
