@@ -3,7 +3,7 @@ package task_scheduler
 import "container/heap"
 
 // solveLeastInterval returns the minimum intervals needed to execute all tasks.
-// Time: O(n log 26) = O(n), Space: O(1) since at most 26 task types.
+// 堆 + 队列方式：堆存当前可执行的任务频次，队列存冷却中的任务。
 func solveLeastInterval(tasks []byte, n int) int {
 	freq := [26]int{}
 	for _, t := range tasks {
@@ -15,23 +15,25 @@ func solveLeastInterval(tasks []byte, n int) int {
 			heap.Push(h, f)
 		}
 	}
+
+	type waiting struct {
+		remain    int // 剩余执行次数
+		available int // 可以重新入堆的时间
+	}
+	var queue []waiting
 	time := 0
-	for h.Len() > 0 {
-		cycle := n + 1
-		var temp []int
-		for cycle > 0 && h.Len() > 0 {
-			f := heap.Pop(h).(int)
-			if f > 1 {
-				temp = append(temp, f-1)
-			}
-			time++
-			cycle--
-		}
-		for _, f := range temp {
-			heap.Push(h, f)
-		}
+
+	for h.Len() > 0 || len(queue) > 0 {
+		time++
 		if h.Len() > 0 {
-			time += cycle // idle slots
+			f := heap.Pop(h).(int) - 1
+			if f > 0 {
+				queue = append(queue, waiting{f, time + n})
+			}
+		}
+		if len(queue) > 0 && queue[0].available == time {
+			heap.Push(h, queue[0].remain)
+			queue = queue[1:]
 		}
 	}
 	return time
