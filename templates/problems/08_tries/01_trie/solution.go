@@ -1,13 +1,19 @@
 package trie
 
+// solveTrieNode represents a node in the SolveTrie.
+type solveTrieNode struct {
+	Children map[byte]*solveTrieNode
+	IsEnd    bool
+}
+
 // SolveTrie implements a prefix tree.
 type SolveTrie struct {
-	Root *TrieNode
+	Root *solveTrieNode
 }
 
 // NewSolveTrie creates and returns a new SolveTrie.
 func NewSolveTrie() SolveTrie {
-	return SolveTrie{Root: &TrieNode{Children: make(map[byte]*TrieNode)}}
+	return SolveTrie{Root: &solveTrieNode{Children: make(map[byte]*solveTrieNode)}}
 }
 
 // Insert adds a word to the trie.
@@ -17,7 +23,7 @@ func (t *SolveTrie) Insert(word string) {
 	for i := 0; i < len(word); i++ {
 		c := word[i]
 		if node.Children[c] == nil {
-			node.Children[c] = &TrieNode{Children: make(map[byte]*TrieNode)}
+			node.Children[c] = &solveTrieNode{Children: make(map[byte]*solveTrieNode)}
 		}
 		node = node.Children[c]
 	}
@@ -37,7 +43,7 @@ func (t *SolveTrie) StartsWith(prefix string) bool {
 	return t.findNode(prefix) != nil
 }
 
-func (t *SolveTrie) findNode(prefix string) *TrieNode {
+func (t *SolveTrie) findNode(prefix string) *solveTrieNode {
 	node := t.Root
 	for i := 0; i < len(prefix); i++ {
 		node = node.Children[prefix[i]]

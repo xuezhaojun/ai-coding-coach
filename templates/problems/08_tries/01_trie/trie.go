@@ -1,14 +1,8 @@
 package trie
 
-// TrieNode represents a node in the Trie.
-type TrieNode struct {
-	Children map[byte]*TrieNode
-	IsEnd    bool
-}
-
 // Trie implements a prefix tree.
 type Trie struct {
-	Root *TrieNode
+	// define your fields
 }
 
 // NewTrie creates and returns a new Trie.
