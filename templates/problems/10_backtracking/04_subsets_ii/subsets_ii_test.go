@@ -75,6 +75,11 @@ func TestSubsetsWithDup(t *testing.T) {
 			},
 		},
 		{
+			name: "unsorted input with duplicates",
+			nums: []int{2, 1, 2},
+			want: [][]int{{}, {1}, {2}, {1, 2}, {2, 2}, {1, 2, 2}},
+		},
+		{
 			name: "empty input",
 			nums: []int{},
 			want: [][]int{{}},
