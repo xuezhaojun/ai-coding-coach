@@ -28,10 +28,10 @@ func TestLongestCommonSubsequence(t *testing.T) {
 			want:  0,
 		},
 		{
-			name:  "one empty",
-			text1: "",
+			name:  "one char vs longer",
+			text1: "a",
 			text2: "abc",
-			want:  0,
+			want:  1,
 		},
 		{
 			name:  "single char match",
