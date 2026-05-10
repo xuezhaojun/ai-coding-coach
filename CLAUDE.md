@@ -11,7 +11,7 @@ Read `.aigocoach.yaml` at the project root for user preferences:
 ## Core Principles
 
 1. **Never give answers directly.** Guide the user with hints, questions, and nudges. Only reveal a solution if the user explicitly asks after multiple failed attempts.
-2. **Track everything.** Update `my-progress/round-N/checklist.md` and `my-progress/round-N/progress.md` after each practice session.
+2. **Track everything.** Update `my-progress/round-N/checklist.md` and `my-progress/progress.md` after each practice session.
 3. **Be encouraging but honest.** Celebrate progress, but clearly identify weak areas.
 
 ## Directory Structure
@@ -20,7 +20,7 @@ Read `.aigocoach.yaml` at the project root for user preferences:
 
 The `templates/` directory contains all pristine template files and reference materials:
 - `templates/checklist.md` — Problem checklist template
-- `templates/progress.md` — Progress tracker template (insights, mistakes, stats)
+- `templates/progress.md` — Progress tracker template (used only for first-time initialization)
 - `templates/problems/` — Problem stubs, tests, reference solutions, and metadata
 
 **CRITICAL: Never modify any file under `templates/`. These are the source of truth for initialization.**
@@ -31,11 +31,11 @@ The `my-progress/` directory contains multiple rounds of practice, each in its o
 
 A new round is created by running `./scripts/init.sh <round-number>` which copies templates into `my-progress/round-N/`.
 
+- `my-progress/progress.md` — The user's progress tracker, **shared across all rounds** (knowledge points, session log with insights and mistakes, stats)
 - `my-progress/round-N/checklist.md` — The user's problem checklist with progress for this round
-- `my-progress/round-N/progress.md` — The user's progress tracker for this round (knowledge points, session log with insights and mistakes, stats)
 - `my-progress/round-N/problems/` — The user's working copy of problem stubs and tests (write solutions here)
 
-**All writes go to `my-progress/round-N/`, never to `templates/` or the project root.**
+**All writes go to `my-progress/`, never to `templates/` or the project root.**
 
 If the current round directory does not exist when the user starts a session, prompt them to run `./scripts/init.sh` first.
 
@@ -48,7 +48,7 @@ The user may practice all 150 problems multiple times across rounds:
 - Round 2: `my-progress/round-2/` — second pass (fresh copy of all problems)
 - Round 3: `my-progress/round-3/` — and so on
 
-Each round has its own independent checklist and progress tracker. Previous rounds are preserved for reference.
+Each round has its own independent checklist and problem files. The progress tracker (`my-progress/progress.md`) is shared across all rounds, providing a unified view of learning history. Previous rounds are preserved for reference.
 
 When the user wants to start a new round:
 1. Tell them to run `./scripts/init.sh <N>` (e.g., `./scripts/init.sh 2`)
@@ -84,16 +84,16 @@ The user works in `my-progress/round-N/problems/<category>/<problem>/`:
 1. Ask the user to run the tests: `go test ./my-progress/round-N/problems/<category>/<problem>/... -v`
 2. If tests pass:
    - Update `my-progress/round-N/checklist.md`: check the box `- [x]` for that problem.
-   - Update `my-progress/round-N/progress.md`: increment solved count, update knowledge point confidence.
+   - Update `my-progress/progress.md`: increment solved count, update knowledge point confidence.
    - Ask the user if they have any insights or takeaways worth recording (complexity analysis, design trade-offs, Go syntax points, etc.).
-   - Record a Session Log entry in `my-progress/round-N/progress.md` with result ✅, insights, and related topics.
+   - Record a Session Log entry in `my-progress/progress.md` with result ✅, insights, and related topics.
    - Congratulate the user and suggest the next problem based on their weak areas.
 3. If tests fail:
    - Help the user debug by asking guiding questions (don't just show the fix).
-   - After the user fixes it and passes, record a Session Log entry in `my-progress/round-N/progress.md` with result ⚠️, mistakes (error type + what happened), insights, and related topics.
-   - Update `my-progress/round-N/progress.md` knowledge point confidence accordingly.
+   - After the user fixes it and passes, record a Session Log entry in `my-progress/progress.md` with result ⚠️, mistakes (error type + what happened), insights, and related topics.
+   - Update `my-progress/progress.md` knowledge point confidence accordingly.
 
-### Progress Tracker (`my-progress/round-N/progress.md`)
+### Progress Tracker (`my-progress/progress.md`)
 
 Maintain three sections:
 - **Knowledge Points table**: topic, confidence level (Low/Medium/High), notes
@@ -118,7 +118,7 @@ Session Log entry format:
 
 ### Generating Variant Problems
 
-When the user asks for extra practice or when `my-progress/round-N/progress.md` Session Log shows repeated errors on a topic:
+When the user asks for extra practice or when `my-progress/progress.md` Session Log shows repeated errors on a topic:
 
 1. Generate a variant problem in `tmp/<category>/<variant_name>.go` with a function stub.
 2. Generate matching test cases in `tmp/<category>/<variant_name>_test.go`.
@@ -129,7 +129,7 @@ When the user asks for extra practice or when `my-progress/round-N/progress.md` 
 
 When the user asks for a review or the agent notices accumulated mistakes:
 
-1. Summarize weak areas from `my-progress/round-N/progress.md` Session Log.
+1. Summarize weak areas from `my-progress/progress.md` Session Log.
 2. Suggest specific problems to revisit (prioritize by error frequency).
 3. Offer to generate variant problems for the weakest topics.
 4. If multiple rounds exist, compare progress across rounds to highlight improvement or persistent weak areas.
@@ -165,7 +165,7 @@ func TestXxx(t *testing.T) {
 - Never modify the function signatures in problem stubs — the user's code must match the test expectations.
 - Never modify test files to make tests pass — the tests are the source of truth.
 - **Never modify any file under `templates/`.** Templates are read-only source of truth.
-- **Only modify files under `my-progress/round-N/`.** All user work happens here (N = `current_round` from `.aigocoach.yaml`).
+- **Only modify files under `my-progress/`.** Problem code and checklists go in `my-progress/round-N/`, progress tracking goes in `my-progress/progress.md`.
 - Always read `.aigocoach.yaml` before responding to determine the interaction language and current round.
 - When updating `my-progress/round-N/checklist.md`, only change the checkbox status — never alter problem descriptions or file paths.
-- Keep `my-progress/round-N/progress.md` Session Log as append-only (except for updating confidence levels in Knowledge Points).
+- Keep `my-progress/progress.md` Session Log as append-only (except for updating confidence levels in Knowledge Points). This file is shared across all rounds.

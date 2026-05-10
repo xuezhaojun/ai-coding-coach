@@ -29,9 +29,15 @@ fi
 echo "Initializing my-progress/round-${ROUND}/ from templates..."
 mkdir -p "$ROUND_DIR"
 
-# Copy tracking files
+# Copy checklist (per-round)
 cp "$TEMPLATES_DIR/checklist.md" "$ROUND_DIR/checklist.md"
-cp "$TEMPLATES_DIR/progress.md" "$ROUND_DIR/progress.md"
+
+# Copy progress.md to my-progress/ only if it doesn't exist yet (shared across rounds)
+PROGRESS_FILE="$REPO_ROOT/my-progress/progress.md"
+if [ ! -f "$PROGRESS_FILE" ]; then
+    cp "$TEMPLATES_DIR/progress.md" "$PROGRESS_FILE"
+    echo "Created my-progress/progress.md (shared across all rounds)"
+fi
 
 # Copy problem stubs, tests, solutions, and READMEs
 echo "Copying problem files..."
@@ -57,9 +63,10 @@ echo ""
 echo "Done! Your workspace is ready at my-progress/round-${ROUND}/"
 echo ""
 echo "  my-progress/round-${ROUND}/"
-echo "  ├── checklist.md   — your problem checklist"
-echo "  ├── progress.md    — your progress tracker"
+echo "  ├── checklist.md   — your problem checklist (per round)"
 echo "  └── problems/      — write your solutions here"
+echo ""
+echo "  my-progress/progress.md — your progress tracker (shared across all rounds)"
 echo ""
 echo "Start a new round:   ./scripts/init.sh <round-number>"
 echo "Reference solutions: templates/problems/<category>/<problem>/solution.go"
