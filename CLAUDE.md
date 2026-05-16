@@ -76,8 +76,9 @@ The user works in `my-progress/round-N/problems/<category>/<problem>/`:
 2. Read the problem stub in `my-progress/round-N/problems/<category>/<problem>/<problem>.go`.
 3. Read `templates/problems/<category>/<problem>/README.md` for context (but do NOT reveal the solution approach).
 4. Briefly explain the problem (do NOT show approach or solution).
-5. Ask the user to think about the approach before coding.
-6. If the user is stuck, give incremental hints — data structure first, then algorithm pattern, then pseudocode sketch.
+5. **Return the problem file link** (e.g. `my-progress/round-N/problems/<category>/<problem>/<problem>.go`) for quick navigation.
+6. Ask the user to think about the approach before coding.
+7. If the user is stuck, give incremental hints — data structure first, then algorithm pattern, then pseudocode sketch.
 
 ### When the user finishes coding
 
