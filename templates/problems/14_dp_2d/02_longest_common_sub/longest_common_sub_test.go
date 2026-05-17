@@ -51,6 +51,12 @@ func TestLongestCommonSubsequence(t *testing.T) {
 			text2: "shmtulqrypy",
 			want:  2,
 		},
+		{
+			name:  "duplicate chars must not double count",
+			text1: "bsbininm",
+			text2: "jmjkbkjkv",
+			want:  1,
+		},
 	}
 
 	for _, tt := range tests {
