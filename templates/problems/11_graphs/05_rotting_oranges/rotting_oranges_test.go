@@ -62,6 +62,16 @@ func TestOrangesRotting(t *testing.T) {
 			},
 			want: 1,
 		},
+		{
+			name: "multiple sources infect same round",
+			grid: [][]int{
+				{2, 2},
+				{1, 1},
+				{0, 0},
+				{2, 0},
+			},
+			want: 1,
+		},
 	}
 
 	for _, tt := range tests {
