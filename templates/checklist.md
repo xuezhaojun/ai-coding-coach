@@ -208,3 +208,12 @@
 - [ ] 18.05 Missing Number (Easy) — `problems/18_bit_manipulation/05_missing_number/missing_number.go`
 - [ ] 18.06 Sum of Two Integers (Medium) — `problems/18_bit_manipulation/06_sum_two_integers/sum_two_integers.go`
 - [ ] 18.07 Reverse Integer (Medium) — `problems/18_bit_manipulation/07_reverse_integer/reverse_integer.go`
+
+## 19. ACM Input/Output
+
+- [ ] 19.01 Fixed Format Input (Easy) — `problems/19_acm_io/01_fixed_format/fixed_format.go`
+- [ ] 19.02 EOF Multi-Case Input (Easy) — `problems/19_acm_io/02_eof_multi_case/eof_multi_case.go`
+- [ ] 19.03 Sentinel Termination Input (Easy) — `problems/19_acm_io/03_sentinel_terminate/sentinel_terminate.go`
+- [ ] 19.04 Matrix Input (Medium) — `problems/19_acm_io/04_matrix_input/matrix_input.go`
+- [ ] 19.05 String Lines Processing (Medium) — `problems/19_acm_io/05_string_lines/string_lines.go`
+- [ ] 19.06 Graph Input (Medium) — `problems/19_acm_io/06_graph_input/graph_input.go`
