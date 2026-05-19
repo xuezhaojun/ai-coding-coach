@@ -15,6 +15,8 @@ func TestJump(t *testing.T) {
 		{"already at end", []int{1}, 0},
 		{"linear jumps", []int{1, 1, 1, 1}, 3},
 		{"large first jump", []int{5, 1, 1, 1, 1, 1}, 1},
+		{"greedy per level", []int{1, 2, 1, 1, 1}, 3},
+		{"level boundary", []int{7, 0, 9, 6, 9, 6, 1, 7, 9, 0, 1, 2, 9, 0, 3}, 2},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
