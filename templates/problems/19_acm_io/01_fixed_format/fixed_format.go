@@ -5,6 +5,9 @@ import "bufio"
 func solve(reader *bufio.Reader, writer *bufio.Writer) {
 	// Read n, then n integers, print their sum.
 	// Use fmt.Fscan(reader, &x) to read each integer.
+	//
+	// 适用题型：数组求和/最大值/平均值、排序题、哈希计数、前缀和
+	// 典型输入：第一行 n，第二行 n 个数
 }
 
 // ACM main() template:
