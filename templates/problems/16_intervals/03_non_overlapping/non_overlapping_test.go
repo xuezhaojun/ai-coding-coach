@@ -14,6 +14,7 @@ func TestEraseOverlapIntervals(t *testing.T) {
 		{"single interval", [][]int{{1, 5}}, 0},
 		{"nested intervals", [][]int{{1, 10}, {2, 3}, {4, 5}}, 1},
 		{"chain overlap", [][]int{{1, 3}, {2, 4}, {3, 5}}, 1},
+		{"negative start LeetCode edge", [][]int{{-50000, 1}}, 0},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
