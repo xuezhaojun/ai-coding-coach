@@ -51,6 +51,12 @@ func TestCanFinish(t *testing.T) {
 			prerequisites: [][]int{{1, 0}, {3, 2}},
 			want:          true,
 		},
+		{
+			name:          "node with two prerequisites and cycle",
+			numCourses:    3,
+			prerequisites: [][]int{{1, 0}, {1, 2}, {0, 1}},
+			want:          false,
+		},
 	}
 
 	for _, tt := range tests {
