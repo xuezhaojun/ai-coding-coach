@@ -52,6 +52,11 @@ func TestThreeSum(t *testing.T) {
 			nums:     []int{-2, 0, 0, 2, 2},
 			expected: [][]int{{-2, 0, 2}},
 		},
+		{
+			name:     "all same value after anchor",
+			nums:     []int{-4, 2, 2, 2, 2},
+			expected: [][]int{{-4, 2, 2}},
+		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
