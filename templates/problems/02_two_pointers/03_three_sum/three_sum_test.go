@@ -47,6 +47,11 @@ func TestThreeSum(t *testing.T) {
 			nums:     []int{1, 2, 3, 4, 5},
 			expected: [][]int{},
 		},
+		{
+			name:     "duplicate left right values",
+			nums:     []int{-2, 0, 0, 2, 2},
+			expected: [][]int{{-2, 0, 2}},
+		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
