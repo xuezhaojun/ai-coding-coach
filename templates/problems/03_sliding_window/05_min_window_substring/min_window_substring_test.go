@@ -51,6 +51,12 @@ func TestMinWindow(t *testing.T) {
 			t_str:    "a",
 			expected: "",
 		},
+		{
+			name:     "many duplicates before target chars",
+			s:        "aaaaaaaaaaaabbbbbcdd",
+			t_str:    "abcdd",
+			expected: "abbbbbcdd",
+		},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {

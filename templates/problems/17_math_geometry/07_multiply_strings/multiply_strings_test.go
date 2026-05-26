@@ -16,6 +16,7 @@ func TestMultiply(t *testing.T) {
 		{"single digits", "9", "9", "81"},
 		{"large numbers", "999", "999", "998001"},
 		{"one and number", "1", "12345", "12345"},
+		{"overflow case", "498828660196", "840477629533", "419254329864656431168468"},
 	}
 	for _, tt := range tests {
 		t.Run(tt.name, func(t *testing.T) {
