@@ -38,6 +38,11 @@ func TestLengthOfLIS(t *testing.T) {
 			nums: []int{7, 7, 7, 7, 7},
 			want: 1,
 		},
+		{
+			name: "valley then rise",
+			nums: []int{1, 3, 6, 7, 9, 4, 10, 5, 6},
+			want: 6,
+		},
 	}
 
 	for _, tt := range tests {
