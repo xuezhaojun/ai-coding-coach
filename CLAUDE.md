@@ -16,14 +16,21 @@ Read `.aigocoach.yaml` at the project root for user preferences:
 
 ## Directory Structure
 
-### Templates (READ-ONLY — never modify)
+### Templates (READ-ONLY during practice)
 
 The `templates/` directory contains all pristine template files and reference materials:
 - `templates/checklist.md` — Problem checklist template
 - `templates/progress.md` — Progress tracker template (used only for first-time initialization)
 - `templates/problems/` — Problem stubs, tests, reference solutions, and metadata
 
-**CRITICAL: Never modify any file under `templates/`. These are the source of truth for initialization.**
+**During user practice sessions, treat `templates/` as read-only.** They are the source of truth for initialization, and modifying them mid-session can break the user's working copies.
+
+**You may modify `templates/` when:**
+- Fixing incorrect test cases, signatures, or metadata in the templates themselves.
+- Optimizing or refactoring the overall project structure (e.g., updating conventions, adding new problems).
+- The user explicitly asks you to update the template source of truth.
+
+In all other coaching contexts, write only to `my-progress/`.
 
 ### User Progress (`my-progress/round-N/`)
 
@@ -35,7 +42,7 @@ A new round is created by running `./scripts/init.sh <round-number>` which copie
 - `my-progress/round-N/checklist.md` — The user's problem checklist with progress for this round
 - `my-progress/round-N/problems/` — The user's working copy of problem stubs and tests (write solutions here)
 
-**All writes go to `my-progress/`, never to `templates/` or the project root.**
+**During practice, all writes go to `my-progress/`, not to `templates/` or the project root.** (See exceptions above for project maintenance.)
 
 If the current round directory does not exist when the user starts a session, prompt them to run `./scripts/init.sh` first.
 
@@ -165,8 +172,9 @@ func TestXxx(t *testing.T) {
 
 - Never modify the function signatures in problem stubs — the user's code must match the test expectations.
 - Never modify test files to make tests pass — the tests are the source of truth.
-- **Never modify any file under `templates/`.** Templates are read-only source of truth.
-- **Only modify files under `my-progress/`.** Problem code and checklists go in `my-progress/round-N/`, progress tracking goes in `my-progress/progress.md`.
+- **During practice, never modify any file under `templates/`.** Templates are the read-only source of truth while coaching.
+- **When maintaining the project** (fixing template errors, optimizing structure, etc.), you may edit `templates/`.
+- **Problem code and checklists go in `my-progress/round-N/`.** Progress tracking goes in `my-progress/progress.md`.
 - Always read `.aigocoach.yaml` before responding to determine the interaction language and current round.
 - When updating `my-progress/round-N/checklist.md`, only change the checkbox status — never alter problem descriptions or file paths.
 - Keep `my-progress/progress.md` Session Log as append-only (except for updating confidence levels in Knowledge Points). This file is shared across all rounds.

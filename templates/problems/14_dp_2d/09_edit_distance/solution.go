@@ -1,24 +1,24 @@
 package edit_distance
 
-// solveMinDistance returns the minimum edit distance between two words. O(m*n) time, O(n) space.
+// solveMinDistance returns the minimum edit distance between two words. O(m*n) time, O(m*n) space.
 func solveMinDistance(word1 string, word2 string) int {
 	m, n := len(word1), len(word2)
-	dp := make([]int, n+1)
+	dp := make([][]int, m+1)
+	for i := range dp {
+		dp[i] = make([]int, n+1)
+		dp[i][0] = i
+	}
 	for j := 0; j <= n; j++ {
-		dp[j] = j
+		dp[0][j] = j
 	}
 	for i := 1; i <= m; i++ {
-		prev := dp[0]
-		dp[0] = i
 		for j := 1; j <= n; j++ {
-			tmp := dp[j]
 			if word1[i-1] == word2[j-1] {
-				dp[j] = prev
+				dp[i][j] = dp[i-1][j-1]
 			} else {
-				dp[j] = 1 + min(prev, min(dp[j], dp[j-1]))
+				dp[i][j] = 1 + min(dp[i-1][j-1], min(dp[i-1][j], dp[i][j-1]))
 			}
-			prev = tmp
 		}
 	}
-	return dp[n]
+	return dp[m][n]
 }

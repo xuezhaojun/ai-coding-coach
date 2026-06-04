@@ -1,24 +1,24 @@
 package interleaving_string
 
-// solveIsInterleave checks if s3 is an interleaving of s1 and s2. O(m*n) time, O(n) space.
+// solveIsInterleave checks if s3 is an interleaving of s1 and s2. O(m*n) time, O(m*n) space.
 func solveIsInterleave(s1 string, s2 string, s3 string) bool {
 	m, n := len(s1), len(s2)
 	if m+n != len(s3) {
 		return false
 	}
-	dp := make([]bool, n+1)
-	for j := 0; j <= n; j++ {
-		if j == 0 {
-			dp[j] = true
-		} else {
-			dp[j] = dp[j-1] && s2[j-1] == s3[j-1]
-		}
+	dp := make([][]bool, m+1)
+	for i := range dp {
+		dp[i] = make([]bool, n+1)
+	}
+	dp[0][0] = true
+	for j := 1; j <= n; j++ {
+		dp[0][j] = dp[0][j-1] && s2[j-1] == s3[j-1]
 	}
 	for i := 1; i <= m; i++ {
-		dp[0] = dp[0] && s1[i-1] == s3[i-1]
+		dp[i][0] = dp[i-1][0] && s1[i-1] == s3[i-1]
 		for j := 1; j <= n; j++ {
-			dp[j] = (dp[j] && s1[i-1] == s3[i+j-1]) || (dp[j-1] && s2[j-1] == s3[i+j-1])
+			dp[i][j] = (dp[i-1][j] && s1[i-1] == s3[i+j-1]) || (dp[i][j-1] && s2[j-1] == s3[i+j-1])
 		}
 	}
-	return dp[n]
+	return dp[m][n]
 }
