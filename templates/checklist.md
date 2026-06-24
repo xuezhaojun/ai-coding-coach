@@ -16,6 +16,7 @@
 - [ ] 01.07 Product of Array Except Self (Medium) — `problems/01_arrays_hashing/07_product_except_self/product_except_self.go`
 - [ ] 01.08 Valid Sudoku (Medium) — `problems/01_arrays_hashing/08_valid_sudoku/valid_sudoku.go`
 - [ ] 01.09 Longest Consecutive Sequence (Medium) — `problems/01_arrays_hashing/09_longest_consecutive/longest_consecutive.go`
+- [ ] 01.10 Merge Sorted Array (Easy) — `problems/01_arrays_hashing/10_merge_sorted_array/merge_sorted_array.go`
 
 ## 02. Two Pointers
 
