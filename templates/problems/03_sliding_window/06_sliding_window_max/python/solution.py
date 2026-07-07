@@ -1,0 +1,23 @@
+from collections import deque
+
+
+def solve_max_sliding_window(nums: list[int], k: int) -> list[int]:
+    """Find the maximum in each sliding window of size k using a monotonic deque.
+
+    Time: O(n), Space: O(k)
+    """
+    if not nums:
+        return []
+
+    dq: deque[int] = deque()
+    result: list[int] = []
+
+    for i in range(len(nums)):
+        while dq and dq[0] < i - k + 1:
+            dq.popleft()
+        while dq and nums[dq[-1]] < nums[i]:
+            dq.pop()
+        dq.append(i)
+        if i >= k - 1:
+            result.append(nums[dq[0]])
+    return result

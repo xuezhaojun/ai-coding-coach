@@ -1,0 +1,14 @@
+{
+  "name": "ai-coding-coach",
+  "version": "1.0.0",
+  "description": "AI Coding Coach — algorithm practice with multi-language support",
+  "scripts": {
+    "test": "vitest run",
+    "test:watch": "vitest",
+    "test:one": "vitest run --dir"
+  },
+  "devDependencies": {
+    "typescript": "^5.4.0",
+    "vitest": "^2.0.0"
+  }
+}

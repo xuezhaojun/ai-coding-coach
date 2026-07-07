@@ -4,4 +4,9 @@ my-progress/
 *.test
 *.out
 .DS_Store
-.aigocoach.yaml
+.aicodingcoach.yaml
+node_modules/
+__pycache__/
+*.pyc
+.venv/
+package-lock.json

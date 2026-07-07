@@ -2,17 +2,18 @@
 set -euo pipefail
 
 REPO_ROOT="$(cd "$(dirname "$0")/.." && pwd)"
+CONFIG_FILE="$REPO_ROOT/.aicodingcoach.yaml"
 
-# Determine round number: argument > .aigocoach.yaml > default 1
+# Determine round number: argument > config file > default 1
 if [ $# -ge 1 ]; then
     ROUND="$1"
 else
-    ROUND=$(grep 'current_round:' "$REPO_ROOT/.aigocoach.yaml" 2>/dev/null | awk '{print $2}' || echo "1")
+    ROUND=$(grep 'current_round:' "$CONFIG_FILE" 2>/dev/null | awk '{print $2}' || echo "1")
 fi
 
 ROUND_DIR="$REPO_ROOT/my-progress/round-${ROUND}"
 
-echo "=== AIgoCoach Reset — Round $ROUND ==="
+echo "=== AI Coding Coach Reset — Round $ROUND ==="
 echo "This will reset ALL progress and solutions for round ${ROUND}."
 echo ""
 

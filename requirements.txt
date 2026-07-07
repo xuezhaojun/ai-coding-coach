@@ -1,0 +1,4 @@
+# AI Coding Coach — Python dependencies
+# Install: pip install -r requirements.txt
+
+pytest>=8.0.0

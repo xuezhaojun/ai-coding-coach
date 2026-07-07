@@ -3,12 +3,13 @@ set -euo pipefail
 
 REPO_ROOT="$(cd "$(dirname "$0")/.." && pwd)"
 TEMPLATES_DIR="$REPO_ROOT/templates"
+CONFIG_FILE="$REPO_ROOT/.aicodingcoach.yaml"
 
-# Determine round number: argument > .aigocoach.yaml > default 1
+# Determine round number: argument > config file > default 1
 if [ $# -ge 1 ]; then
     ROUND="$1"
 else
-    ROUND=$(grep 'current_round:' "$REPO_ROOT/.aigocoach.yaml" 2>/dev/null | awk '{print $2}' || echo "1")
+    ROUND=$(grep 'current_round:' "$CONFIG_FILE" 2>/dev/null | awk '{print $2}' || echo "1")
 fi
 
 ROUND_DIR="$REPO_ROOT/my-progress/round-${ROUND}"
@@ -37,37 +38,71 @@ find . -path "*/assets/*" -type f | while read -r file; do
     if [ ! -f "$dest" ] || ! cmp -s "$file" "$dest"; then
         cp "$file" "$dest"
         echo "  + $file"
-        added=$((added + 1))
     fi
 done
 
 # Sync READMEs (always overwrite — these are problem descriptions, not user work)
-find . -name "README.md" -o -name "README_zh.md" | while read -r file; do
+find . \( -name "README.md" -o -name "README_zh.md" \) | while read -r file; do
     dest="$ROUND_DIR/problems/$file"
     if [ ! -f "$dest" ] || ! cmp -s "$file" "$dest"; then
         cp "$file" "$dest"
         echo "  ~ $file"
-        updated=$((updated + 1))
     fi
 done
 
-# Sync test files (always overwrite — tests are source of truth)
-find . -name "*_test.go" | while read -r file; do
+# Sync test files for all languages (always overwrite — tests are source of truth)
+# Go tests
+find . -path "*/go/*_test.go" -type f 2>/dev/null | while read -r file; do
     dest="$ROUND_DIR/problems/$file"
     if [ ! -f "$dest" ] || ! cmp -s "$file" "$dest"; then
         cp "$file" "$dest"
         echo "  ~ $file"
-        updated=$((updated + 1))
+    fi
+done
+
+# Python tests
+find . -path "*/python/test_*.py" -type f 2>/dev/null | while read -r file; do
+    dest="$ROUND_DIR/problems/$file"
+    if [ ! -f "$dest" ] || ! cmp -s "$file" "$dest"; then
+        cp "$file" "$dest"
+        echo "  ~ $file"
+    fi
+done
+
+# TypeScript tests
+find . -path "*/typescript/*.test.ts" -type f 2>/dev/null | while read -r file; do
+    dest="$ROUND_DIR/problems/$file"
+    if [ ! -f "$dest" ] || ! cmp -s "$file" "$dest"; then
+        cp "$file" "$dest"
+        echo "  ~ $file"
     fi
 done
 
 # Sync solution stubs and solutions — only if missing (never overwrite user work)
-find . -name "*.go" ! -name "*_test.go" | while read -r file; do
+# Go
+find . -path "*/go/*.go" ! -name "*_test.go" -type f 2>/dev/null | while read -r file; do
     dest="$ROUND_DIR/problems/$file"
     if [ ! -f "$dest" ]; then
         cp "$file" "$dest"
         echo "  + $file"
-        added=$((added + 1))
+    fi
+done
+
+# Python
+find . -path "*/python/*.py" ! -name "test_*.py" -type f 2>/dev/null | while read -r file; do
+    dest="$ROUND_DIR/problems/$file"
+    if [ ! -f "$dest" ]; then
+        cp "$file" "$dest"
+        echo "  + $file"
+    fi
+done
+
+# TypeScript
+find . -path "*/typescript/*.ts" ! -name "*.test.ts" -type f 2>/dev/null | while read -r file; do
+    dest="$ROUND_DIR/problems/$file"
+    if [ ! -f "$dest" ]; then
+        cp "$file" "$dest"
+        echo "  + $file"
     fi
 done
 

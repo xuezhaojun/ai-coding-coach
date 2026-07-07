@@ -1,0 +1,16 @@
+def solve_find_target_sum_ways(nums: list[int], target: int) -> int:
+    """Count ways to assign +/- to reach target.
+
+    Time: O(n * sum), Space: O(sum)
+    """
+    total = sum(nums)
+    # We need (total + target) to be even and non-negative
+    if (total + target) % 2 != 0 or total + target < 0 or total < abs(target):
+        return 0
+    subset_sum = (total + target) // 2
+    dp = [0] * (subset_sum + 1)
+    dp[0] = 1
+    for num in nums:
+        for j in range(subset_sum, num - 1, -1):
+            dp[j] += dp[j - num]
+    return dp[subset_sum]

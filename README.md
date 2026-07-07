@@ -1,14 +1,15 @@
-# AIgoCoach 🤖
+# AI Coding Coach 🤖
 
 English | [中文](README_zh.md)
 
-> Your AI algorithm coach — 150 classic problems in Go, guided step by step.
+> Your AI algorithm coach — 150 classic problems in Go, Python, and TypeScript, guided step by step.
 
 ## What Is This?
 
 An interview prep repo designed to work with AI coding assistants (Claude Code, Cursor, Windsurf, etc.). Clone it, open it, and start practicing algorithm problems with an AI coach that:
 
 - Guides you through 150 problems (based on NeetCode 150) without giving away answers
+- Supports Go, Python, and TypeScript — practice in the language of your choice
 - Tracks your progress in `my-progress/checklist.md`
 - Records insights and mistakes in `my-progress/progress.md` and identifies weak areas
 - Generates variant problems based on your error patterns
@@ -18,14 +19,15 @@ An interview prep repo designed to work with AI coding assistants (Claude Code, 
 ## Quick Start
 
 ```bash
-git clone https://github.com/xuezhaojun/aigocoach.git
-cd aigocoach
+git clone https://github.com/xuezhaojun/ai-coding-coach.git
+cd ai-coding-coach
 
 # Initialize your personal workspace
-./scripts/init.sh
+# Choose your practice language: go, python, typescript, or all
+./scripts/init.sh --lang=go
 
-# (Optional) Set your preferred language
-# Edit .aigocoach.yaml → language: "zh" or "en"
+# (Optional) Set your preferred interaction language
+# Edit .aicodingcoach.yaml → interaction_language: "zh" or "en"
 
 # Open in VS Code with Claude Code / Cursor / Windsurf
 code .
@@ -40,29 +42,32 @@ code .
 
 ### 1. Pick a Problem
 
-Open `my-progress/checklist.md` to see all 150 problems organized by category and difficulty (numbered `01.01`, `01.02`, etc.). Each links to your working Go file.
+Open `my-progress/checklist.md` to see all 150 problems organized by category and difficulty (numbered `01.01`, `01.02`, etc.). Each links to your working file in your chosen language.
 
 ### 2. Write Your Solution
 
-Edit the `.go` file in `my-progress/problems/` — the function signature is already there, just fill in the body.
+Edit the file in `my-progress/problems/<category>/<problem>/<lang>/` — the function signature is already there, just fill in the body.
 
 ### 3. Run Tests
 
 ```bash
-# Test a specific problem
-go test ./my-progress/problems/01_arrays_hashing/03_two_sum/... -v
+# Go
+go test ./my-progress/problems/01_arrays_hashing/03_two_sum/go/... -v
 
-# Test all problems in a category
-go test ./my-progress/problems/07_trees/... -v
+# Python
+pytest my-progress/problems/01_arrays_hashing/03_two_sum/python/ -v
+
+# TypeScript
+npx vitest run my-progress/problems/01_arrays_hashing/03_two_sum/typescript/
 ```
 
 ### 4. Track Progress
 
-The agent automatically updates `my-progress/checklist.md` (checkboxes) and `my-progress/progress.md` (session log with insights, mistakes, and knowledge points) as you work.
+The agent automatically updates `my-progress/checklist.md` (checkboxes) and `my-progress/progress.md` (session log with insights, mistakes, and knowledge points) as you work. The progress tracker is shared across all languages.
 
 ### 5. Check Reference Solutions
 
-Each problem has a reference solution in `templates/problems/<category>/<problem>/solution.go`. Ask the agent or read it directly when you're stuck.
+Each problem has a reference solution in `templates/problems/<category>/<problem>/<lang>/solution.*`. Ask the agent or read it directly when you're stuck.
 
 ### 6. Reset & Start Fresh
 
@@ -74,20 +79,29 @@ Each problem has a reference solution in `templates/problems/<category>/<problem
 ## Project Structure
 
 ```
-aigocoach/
+ai-coding-coach/
 ├── CLAUDE.md                  # Agent behavior instructions
 ├── AGENTS.md                  # Symlink → CLAUDE.md (for other AI tools)
-├── .aigocoach.yaml        # User configuration (gitignored, created by init.sh)
+├── .aicodingcoach.yaml        # User configuration (gitignored, created by init.sh)
 ├── templates/                 # READ-ONLY (do not modify)
 │   ├── checklist.md           # Problem checklist template
 │   ├── progress.md            # Progress tracker template
 │   └── problems/              # Problem stubs, tests, solutions, metadata
 │       ├── 01_arrays_hashing/
 │       │   ├── 01_contains_duplicate/
-│       │   │   ├── contains_duplicate.go      # Function stub
-│       │   │   ├── contains_duplicate_test.go  # Tests
-│       │   │   ├── solution.go                 # Optimal reference solution
-│       │   │   └── README.md                   # Difficulty, topics, approach
+│       │   │   ├── README.md                   # Difficulty, topics, approach
+│       │   │   ├── go/
+│       │   │   │   ├── contains_duplicate.go   # Go function stub
+│       │   │   │   ├── contains_duplicate_test.go  # Go tests
+│       │   │   │   └── solution.go             # Optimal reference solution
+│       │   │   ├── python/
+│       │   │   │   ├── contains_duplicate.py   # Python function stub
+│       │   │   │   ├── test_contains_duplicate.py  # Python tests (pytest)
+│       │   │   │   └── solution.py             # Optimal reference solution
+│       │   │   └── typescript/
+│       │   │       ├── contains_duplicate.ts   # TypeScript function stub
+│       │   │       ├── contains_duplicate.test.ts  # TypeScript tests (vitest)
+│       │   │       └── solution.ts             # Optimal reference solution
 │       │   └── ...
 │       ├── 02_two_pointers/       # 5 problems
 │       ├── 03_sliding_window/     # 6 problems
@@ -115,17 +129,20 @@ aigocoach/
 │   └── ...
 ├── tmp/                       # Variant problems (gitignored)
 └── scripts/
-    ├── init.sh                # Initialize my-progress/ from templates
+    ├── init.sh                # Initialize my-progress/ from templates (--lang flag)
     └── reset.sh               # Reset to fresh state
 ```
 
 ## Configuration
 
-`.aigocoach.yaml` is your personal configuration file (gitignored). It is automatically created when you run `./scripts/init.sh`. You can also create it manually:
+`.aicodingcoach.yaml` is your personal configuration file (gitignored). It is automatically created when you run `./scripts/init.sh`. You can also create it manually:
 
 ```yaml
-# Language for agent interaction: "en" or "zh"
-language: en
+# Interaction language: "en" or "zh"
+interaction_language: en
+
+# Practice language: "go", "python", or "typescript"
+practice_language: go
 
 # Current practice round (1, 2, 3, ...)
 # Each round creates a fresh copy of all problems under my-progress/round-N/
@@ -134,7 +151,8 @@ current_round: 1
 
 | Field | Description | Default |
 |-------|-------------|---------|
-| `language` | Agent interaction language. `"en"` for English, `"zh"` for Chinese. | `en` |
+| `interaction_language` | Agent interaction language. `"en"` for English, `"zh"` for Chinese. | `en` |
+| `practice_language` | Programming language for practice. `"go"`, `"python"`, or `"typescript"`. | `go` |
 | `current_round` | Active practice round number. Determines which `my-progress/round-N/` directory the agent uses. Updated automatically by `./scripts/init.sh <N>`. | `1` |
 
 ### Multi-Round Practice
@@ -142,14 +160,17 @@ current_round: 1
 You can practice all 150 problems multiple times. Each round gets a fresh workspace:
 
 ```bash
-# Start round 1 (default)
-./scripts/init.sh
+# Start round 1 (default, Go)
+./scripts/init.sh --lang=go
 
-# Start round 2 (fresh copy of all problems)
-./scripts/init.sh 2
+# Start round 2 (fresh copy, Python)
+./scripts/init.sh 2 --lang=python
 
-# Start round 3
-./scripts/init.sh 3
+# Start round 3 (all languages)
+./scripts/init.sh 3 --lang=all
+
+# Start round 3 (TypeScript)
+./scripts/init.sh 3 --lang=typescript
 ```
 
 Each round is stored independently under `my-progress/round-N/` with its own checklist and progress tracker. Previous rounds are preserved so you can compare improvement over time.

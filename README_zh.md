@@ -1,14 +1,15 @@
-# AIgoCoach 🤖
+# AI Coding Coach 🤖
 
 [English](README.md) | 中文
 
-> 你的 AI 算法教练 — 150 道经典算法题，用 Go 实现，AI 全程引导。
+> 你的 AI 算法教练 — 150 道经典算法题，支持 Go、Python、TypeScript，AI 全程引导。
 
 ## 这是什么？
 
 一个专为 AI 编程助手（Claude Code、Cursor、Windsurf 等）设计的面试刷题仓库。克隆下来，打开项目，就能开始和 AI 教练一起练习算法题：
 
 - 引导你完成 150 道题目（基于 NeetCode 150），不会直接给答案
+- 支持 Go、Python、TypeScript 三种语言，选择你擅长的语言练习
 - 在 `my-progress/checklist.md` 中追踪你的刷题进度
 - 在 `my-progress/progress.md` 中记录心得和错误，帮你发现薄弱环节
 - 根据你的错误模式生成变体练习题
@@ -18,14 +19,15 @@
 ## 快速开始
 
 ```bash
-git clone https://github.com/xuezhaojun/aigocoach.git
-cd aigocoach
+git clone https://github.com/xuezhaojun/ai-coding-coach.git
+cd ai-coding-coach
 
 # 初始化你的个人工作空间
-./scripts/init.sh
+# 选择练习语言：go、python、typescript 或 all
+./scripts/init.sh --lang=go
 
 # （可选）设置交互语言
-# 编辑 .aigocoach.yaml → language: "zh" 或 "en"
+# 编辑 .aicodingcoach.yaml → interaction_language: "zh" 或 "en"
 
 # 用 VS Code 配合 Claude Code / Cursor / Windsurf 打开
 code .
@@ -40,29 +42,32 @@ code .
 
 ### 1. 选择题目
 
-打开 `my-progress/checklist.md`，查看按分类和难度排列的 150 道题目（编号格式 `01.01`、`01.02`……）。每道题都链接到你的工作文件。
+打开 `my-progress/checklist.md`，查看按分类和难度排列的 150 道题目（编号格式 `01.01`、`01.02`……）。每道题都链接到你所选语言的工作文件。
 
 ### 2. 编写解法
 
-编辑 `my-progress/problems/` 下对应的 `.go` 文件 — 函数签名已经定义好，只需填写函数体。
+编辑 `my-progress/problems/<分类>/<题目>/<语言>/` 下对应的文件 — 函数签名已经定义好，只需填写函数体。
 
 ### 3. 运行测试
 
 ```bash
-# 测试单道题目
-go test ./my-progress/problems/01_arrays_hashing/03_two_sum/... -v
+# Go
+go test ./my-progress/problems/01_arrays_hashing/03_two_sum/go/... -v
 
-# 测试整个分类
-go test ./my-progress/problems/07_trees/... -v
+# Python
+pytest my-progress/problems/01_arrays_hashing/03_two_sum/python/ -v
+
+# TypeScript
+npx vitest run my-progress/problems/01_arrays_hashing/03_two_sum/typescript/
 ```
 
 ### 4. 追踪进度
 
-AI 教练会自动更新 `my-progress/checklist.md`（打勾）和 `my-progress/progress.md`（心得、错误记录、知识点掌握度）。
+AI 教练会自动更新 `my-progress/checklist.md`（打勾）和 `my-progress/progress.md`（心得、错误记录、知识点掌握度）。进度追踪在所有语言之间共享。
 
 ### 5. 查看参考答案
 
-每道题的参考答案在 `templates/problems/<分类>/<题目>/solution.go`。卡住的时候可以让 AI 教练提示，或者直接查看。
+每道题的参考答案在 `templates/problems/<分类>/<题目>/<语言>/solution.*`。卡住的时候可以让 AI 教练提示，或者直接查看。
 
 ### 6. 重置进度
 
@@ -74,20 +79,29 @@ AI 教练会自动更新 `my-progress/checklist.md`（打勾）和 `my-progress/
 ## 项目结构
 
 ```
-aigocoach/
+ai-coding-coach/
 ├── CLAUDE.md                  # AI 教练行为指令
 ├── AGENTS.md                  # CLAUDE.md 的符号链接（兼容其他 AI 工具）
-├── .aigocoach.yaml        # 用户配置（已加入 gitignore，由 init.sh 创建）
+├── .aicodingcoach.yaml        # 用户配置（已加入 gitignore，由 init.sh 创建）
 ├── templates/                 # 只读模板（不要修改）
 │   ├── checklist.md           # 题目清单模板
 │   ├── progress.md            # 进度追踪模板
 │   └── problems/              # 题目桩、测试、参考答案、元数据
 │       ├── 01_arrays_hashing/
 │       │   ├── 01_contains_duplicate/
-│       │   │   ├── contains_duplicate.go      # 函数桩
-│       │   │   ├── contains_duplicate_test.go  # 测试
-│       │   │   ├── solution.go                 # 最优参考解法
-│       │   │   └── README.md                   # 难度、知识点、思路
+│       │   │   ├── README.md                   # 难度、知识点、思路
+│       │   │   ├── go/
+│       │   │   │   ├── contains_duplicate.go   # Go 函数桩
+│       │   │   │   ├── contains_duplicate_test.go  # Go 测试
+│       │   │   │   └── solution.go             # 最优参考解法
+│       │   │   ├── python/
+│       │   │   │   ├── contains_duplicate.py   # Python 函数桩
+│       │   │   │   ├── test_contains_duplicate.py  # Python 测试（pytest）
+│       │   │   │   └── solution.py             # 最优参考解法
+│       │   │   └── typescript/
+│       │   │       ├── contains_duplicate.ts   # TypeScript 函数桩
+│       │   │       ├── contains_duplicate.test.ts  # TypeScript 测试（vitest）
+│       │   │       └── solution.ts             # 最优参考解法
 │       │   └── ...
 │       ├── 02_two_pointers/       # 双指针 — 5 题
 │       ├── 03_sliding_window/     # 滑动窗口 — 6 题
@@ -115,17 +129,20 @@ aigocoach/
 │   └── ...
 ├── tmp/                       # 变体练习题（不纳入 git）
 └── scripts/
-    ├── init.sh                # 从模板初始化 my-progress/
+    ├── init.sh                # 从模板初始化 my-progress/（支持 --lang 参数）
     └── reset.sh               # 重置脚本
 ```
 
 ## 配置
 
-`.aigocoach.yaml` 是你的个人配置文件（已加入 gitignore）。运行 `./scripts/init.sh` 时会自动创建。你也可以手动创建：
+`.aicodingcoach.yaml` 是你的个人配置文件（已加入 gitignore）。运行 `./scripts/init.sh` 时会自动创建。你也可以手动创建：
 
 ```yaml
-# AI 交互语言："en"（英文）或 "zh"（中文）
-language: en
+# 交互语言："en"（英文）或 "zh"（中文）
+interaction_language: en
+
+# 练习语言："go"、"python" 或 "typescript"
+practice_language: go
 
 # 当前练习轮次（1, 2, 3, ...）
 # 每一轮会在 my-progress/round-N/ 下创建全部题目的新副本
@@ -134,7 +151,8 @@ current_round: 1
 
 | 字段 | 说明 | 默认值 |
 |------|------|--------|
-| `language` | AI 交互语言。`"en"` 英文，`"zh"` 中文。 | `en` |
+| `interaction_language` | AI 交互语言。`"en"` 英文，`"zh"` 中文。 | `en` |
+| `practice_language` | 练习用编程语言。`"go"`、`"python"` 或 `"typescript"`。 | `go` |
 | `current_round` | 当前练习轮次。决定 AI 教练使用哪个 `my-progress/round-N/` 目录。运行 `./scripts/init.sh <N>` 时自动更新。 | `1` |
 
 ### 多轮练习
@@ -142,14 +160,17 @@ current_round: 1
 你可以多次刷完全部 150 道题。每一轮都有全新的工作空间：
 
 ```bash
-# 开始第 1 轮（默认）
-./scripts/init.sh
+# 开始第 1 轮（默认，Go）
+./scripts/init.sh --lang=go
 
-# 开始第 2 轮（全部题目的新副本）
-./scripts/init.sh 2
+# 开始第 2 轮（全部题目的新副本，Python）
+./scripts/init.sh 2 --lang=python
 
-# 开始第 3 轮
-./scripts/init.sh 3
+# 开始第 3 轮（所有语言）
+./scripts/init.sh 3 --lang=all
+
+# 开始第 3 轮（TypeScript）
+./scripts/init.sh 3 --lang=typescript
 ```
 
 每一轮独立存放在 `my-progress/round-N/` 下，拥有各自的题目清单和进度记录。之前的轮次会保留，方便你对比不同轮次的进步。
